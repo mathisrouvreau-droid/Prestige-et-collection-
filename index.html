@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prestige &amp; Collection — Le musée automobile que l'on peut conduire, à Jallais en Anjou</title>
+  <meta name="description" content="Unique en France : un musée automobile vivant à Jallais, entre Cholet et Angers. Plus de 100 véhicules de légende — Ferrari, Rolls-Royce, Jaguar, Ford GT40… — à visiter, et surtout à conduire. Sur rendez-vous.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IBM+Plex+Mono:wght@400;500&family=Jost:ital,wght@0,300..600;1,300..600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Museum",
+    "name": "Prestige & Collection",
+    "description": "Musée automobile vivant : plus de 100 véhicules de légende et de collection à visiter et à conduire. Unique en France.",
+    "slogan": "Le musée que l'on peut conduire",
+    "telephone": "+33 7 88 47 23 76",
+    "email": "info@prestigeetcollection.com",
+    "url": "https://www.prestigeetcollection.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10 route d'Andrezé",
+      "addressLocality": "Jallais, Beaupréau-en-Mauges",
+      "postalCode": "49510",
+      "addressCountry": "FR"
+    },
+    "openingHours": "Sur rendez-vous"
+  }
+  </script>
+</head>
+<body>
+<!-- ===================== SPRITE (dessins de la maison) ===================== -->
+<div hidden>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="pc-wheel" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-linecap="round">
+    <circle cx="32" cy="32" r="27" stroke-width="3.5"/>
+    <circle cx="32" cy="32" r="20.5" stroke-width="1.6"/>
+    <circle cx="32" cy="32" r="5" fill="currentColor" stroke="none"/>
+    <line x1="11.5" y1="32" x2="26" y2="32" stroke-width="3"/>
+    <line x1="38" y1="32" x2="52.5" y2="32" stroke-width="3"/>
+    <line x1="32" y1="38" x2="32" y2="52.5" stroke-width="3"/>
+  </symbol>
+  <symbol id="art-route" viewBox="0 0 300 24" fill="none" stroke="currentColor">
+    <path d="M 10 13 C 60 3, 95 21, 150 12 C 200 4, 245 18, 290 11" stroke-width="2.5" stroke-dasharray="1 8" stroke-linecap="round"/>
+    <circle cx="7" cy="13" r="3.4" fill="currentColor" stroke="none"/>
+    <circle cx="293" cy="11" r="3.4" fill="none" stroke-width="2"/>
+  </symbol>
+  <symbol id="car-roadster" viewBox="0 0 640 210" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 22 112 C 42 98, 92 90, 148 86 C 186 83, 216 82, 238 81 C 252 88, 270 91, 288 88 L 298 86 L 318 56 L 328 56 L 332 82 C 392 76, 486 84, 562 96 C 596 102, 610 108, 614 118 C 616 124, 615 132, 610 138 L 604 144 L 516 146 A 42 42 0 0 0 428 146 L 186 146 A 42 42 0 0 0 98 146 L 34 142 C 24 138, 20 128, 22 112 Z"/>
+    <path d="M 322 88 C 317 108, 317 126, 324 145" stroke-width="2"/>
+    <path d="M 560 100 C 566 104, 570 110, 571 116" stroke-width="2"/>
+    <path d="M 398 84 l 26 2 M 400 92 l 26 2" stroke-width="1.6"/>
+    <path d="M 26 152 h -14" stroke-width="2.5"/>
+    <circle cx="142" cy="146" r="30"/><circle cx="142" cy="146" r="17" stroke-width="1.8"/><circle cx="142" cy="146" r="3.5" fill="currentColor" stroke="none"/>
+    <circle cx="472" cy="146" r="30"/><circle cx="472" cy="146" r="17" stroke-width="1.8"/><circle cx="472" cy="146" r="3.5" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="car-racer" viewBox="0 0 640 210" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 30 94 C 84 90, 140 89, 194 88 C 212 64, 248 56, 282 56 C 314 56, 344 68, 366 82 C 424 90, 502 98, 566 106 C 596 110, 610 116, 614 124 L 616 132 L 604 142 L 518 146 A 40 40 0 0 0 438 146 L 192 146 A 40 40 0 0 0 112 146 L 38 144 C 30 138, 28 116, 30 94 Z"/>
+    <path d="M 232 70 C 258 62, 298 62, 322 72 L 344 84" stroke-width="2"/>
+    <path d="M 286 62 L 292 84" stroke-width="1.6"/>
+    <path d="M 370 106 C 390 100, 410 100, 424 106 L 428 122" stroke-width="2"/>
+    <path d="M 44 100 v 32 M 58 99 v 34 M 72 98 v 35" stroke-width="1.6"/>
+    <circle cx="152" cy="146" r="29"/><circle cx="152" cy="146" r="16" stroke-width="1.8"/><circle cx="152" cy="146" r="3.5" fill="currentColor" stroke="none"/>
+    <circle cx="478" cy="146" r="29"/><circle cx="478" cy="146" r="16" stroke-width="1.8"/><circle cx="478" cy="146" r="3.5" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="car-limo" viewBox="0 0 640 210" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 26 118 C 56 112, 88 109, 122 107 C 132 84, 158 68, 200 64 L 322 64 C 344 64, 356 74, 366 90 C 424 92, 480 93, 540 94 L 592 96 L 596 146 L 514 150 A 40 40 0 0 0 434 150 L 188 150 A 40 40 0 0 0 108 150 L 34 146 C 26 140, 24 130, 26 118 Z"/>
+    <path d="M 150 102 L 344 100" stroke-width="2"/>
+    <path d="M 206 68 L 208 100 M 282 66 L 284 100" stroke-width="1.6"/>
+    <path d="M 556 95 L 560 147" stroke-width="2"/>
+    <path d="M 572 105 v 34 M 582 105 v 34" stroke-width="1.2"/>
+    <path d="M 576 93 v -7" stroke-width="2"/>
+    <circle cx="576" cy="82" r="3" stroke-width="1.6"/>
+    <circle cx="534" cy="114" r="7.5" stroke-width="2"/>
+    <circle cx="148" cy="150" r="29"/><circle cx="148" cy="150" r="16" stroke-width="1.8"/><circle cx="148" cy="150" r="3.5" fill="currentColor" stroke="none"/>
+    <circle cx="474" cy="150" r="29"/><circle cx="474" cy="150" r="16" stroke-width="1.8"/><circle cx="474" cy="150" r="3.5" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="car-cab" viewBox="0 0 640 210" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 26 86 L 138 106 C 182 110, 222 110, 252 108 C 262 113, 280 115, 296 112 L 304 110 L 322 82 L 330 82 L 334 106 C 408 102, 490 102, 552 106 C 590 108, 608 114, 612 122 L 614 132 L 602 144 L 518 148 A 40 40 0 0 0 438 148 L 194 148 A 40 40 0 0 0 114 148 L 36 146 C 26 140, 22 130, 24 118 L 26 86 Z"/>
+    <path d="M 44 112 L 560 116" stroke-width="1.6"/>
+    <path d="M 330 108 C 326 122, 326 134, 332 146" stroke-width="2"/>
+    <circle cx="34" cy="100" r="4" stroke-width="1.8"/>
+    <circle cx="578" cy="116" r="6" stroke-width="2"/>
+    <circle cx="154" cy="148" r="29"/><circle cx="154" cy="148" r="16" stroke-width="1.8"/><circle cx="154" cy="148" r="3.5" fill="currentColor" stroke="none"/>
+    <circle cx="478" cy="148" r="29"/><circle cx="478" cy="148" r="16" stroke-width="1.8"/><circle cx="478" cy="148" r="3.5" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="car-4x4" viewBox="0 0 640 210" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 120 62 L 380 62 L 398 92 L 560 94 L 564 128 L 596 128 L 596 142 L 540 142 A 48 34 0 0 0 444 142 L 268 142 A 48 34 0 0 0 172 142 L 120 142 L 110 134 L 110 70 Z"/>
+    <path d="M 130 70 L 372 70 L 384 92 L 130 92 Z" stroke-width="1.8"/>
+    <path d="M 250 70 v 22" stroke-width="1.6"/>
+    <path d="M 254 92 v 50 M 178 92 v 50" stroke-width="1.6"/>
+    <path d="M 452 104 h 84" stroke-width="1.8"/>
+    <circle cx="552" cy="110" r="5.5" stroke-width="2"/>
+    <path d="M 110 96 h -12 v 20 h 12" stroke-width="2"/>
+    <circle cx="220" cy="152" r="38"/><circle cx="220" cy="152" r="22" stroke-width="1.8"/><circle cx="220" cy="152" r="4.5" fill="currentColor" stroke="none"/>
+    <circle cx="492" cy="152" r="38"/><circle cx="492" cy="152" r="22" stroke-width="1.8"/><circle cx="492" cy="152" r="4.5" fill="currentColor" stroke="none"/>
+  </symbol>
+</svg>
+</div>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- ===================== BANDEAU + ENTÊTE ===================== -->
+<div class="topbar">
+  <div class="wrap">
+    <span class="topbar-place">Jallais · entre Cholet et Angers · uniquement sur rendez-vous</span>
+    <a href="tel:+33788472376">07 88 47 23 76</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Prestige et Collection — accueil">
+      <svg class="brand-mark" aria-hidden="true"><use href="#pc-wheel"/></svg>
+      <span class="brand-name">Prestige &amp; Collection<small>Musée automobile vivant</small></span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-principal">
+      <span class="sr-only" hidden>Menu</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="site-nav" id="nav-principal" aria-label="Navigation principale">
+      <a href="index.html" aria-current="page">Accueil</a>
+      <a href="collection.html">La collection</a>
+      <a href="experiences.html">Les expériences</a>
+      <a href="tarifs.html">Tarifs</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn btn-primary btn-small" href="contact.html">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenu">
+<!-- ===================== HÉROS ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Unique en France — Jallais, Anjou</p>
+        <h1 class="display-1">Le musée que l'on peut <em>conduire</em>.</h1>
+        <p class="lede">Plus de <strong>cent véhicules de légende</strong> réunis dans un même lieu — sportives, limousines, motos et machines improbables. Et contrairement à tous les autres musées&nbsp;: ici, on ouvre les portières, on s'installe à bord… <strong>et on prend la route.</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="experiences.html">Choisir mon expérience</a>
+          <a class="btn btn-ghost" href="tarifs.html#bon-cadeau">Offrir un bon cadeau</a>
+        </div>
+      </div>
+      <figure class="hero-art reveal">
+        <svg class="car-drawing" viewBox="0 0 640 210" role="img" aria-label="Dessin technique d'un roadster de collection"><use href="#car-roadster"/></svg>
+        <svg class="route" viewBox="0 0 300 24" aria-hidden="true" preserveAspectRatio="none"><use href="#art-route"/></svg>
+        <figcaption class="spec"><span>Planche n° 1 — roadster, six cylindres</span><span>éch. 1:24</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="hero-stats">
+      <div><span class="stat-value">100<span style="color:var(--red)">+</span></span><br><span class="stat-label">Véhicules de légende</span></div>
+      <div><span class="stat-value">2&nbsp;h</span><br><span class="stat-label">De visite commentée</span></div>
+      <div><span class="stat-value">25&nbsp;€</span><br><span class="stat-label">L'entrée du musée</span></div>
+      <div><span class="stat-value">N°&nbsp;1</span><br><span class="stat-label">Seul musée conduisible de France</span></div>
+    </div>
+  </div>
+  <div class="checker" style="margin-top: clamp(2.5rem, 5vw, 4rem);"></div>
+</section>
+
+<!-- ===================== CREDO ===================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">La maison</p>
+      <h2 class="display-2">Un musée n'est vivant que si ses moteurs tournent</h2>
+    </div>
+    <div class="credo">
+      <article class="reveal">
+        <h3>Ici, on <em>touche</em></h3>
+        <p>Pas de cordon de velours ni de vitrine. Pendant la visite commentée, on s'installe au volant de certains véhicules, on écoute les histoires, on respire le cuir et la mécanique.</p>
+      </article>
+      <article class="reveal">
+        <h3>Ici, ça <em>démarre</em></h3>
+        <p>Chaque véhicule de la collection est entretenu pour rouler. Les baptêmes se font sur route ouverte, dans le bocage des Mauges — pas sur un parking.</p>
+      </article>
+      <article class="reveal">
+        <h3>Ici, on <em>conduit</em></h3>
+        <p>Le rêve interdit de tous les musées du monde&nbsp;: prendre le volant d'une voiture de légende, accompagné, sur un itinéraire de 25 à 30&nbsp;km. C'est notre raison d'être.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPÉRIENCES ===================== -->
+<section class="section section-alt" id="experiences">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Les expériences</p>
+      <h2 class="display-2">Quatre façons d'entrer dans la légende</h2>
+      <p>Par intensité croissante — de la première visite au tour de route au volant.</p>
+    </div>
+    <div class="plates">
+      <article class="plate reveal">
+        <span class="plate-no">Intensité I</span>
+        <figure class="plate-figure"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-limo"/></svg></figure>
+        <h3>La visite commentée</h3>
+        <p>Deux heures dans la collection, racontées par des passionnés. On monte à bord de certains véhicules.</p>
+        <ul class="plate-meta">
+          <li>2 h 00</li><li>Tout public</li><li class="is-price">25 € / pers.</li>
+        </ul>
+        <a class="plate-cta" href="experiences.html#visite">Découvrir</a>
+      </article>
+      <article class="plate reveal">
+        <span class="plate-no">Intensité II</span>
+        <figure class="plate-figure"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-cab"/></svg></figure>
+        <h3>Le baptême passager</h3>
+        <p>La visite, puis la route en passager d'un véhicule d'exception — cheveux au vent en cabriolet ou trois-roues Vanderhall.</p>
+        <ul class="plate-meta">
+          <li>3 à 15 km</li><li>1 à 4 passagers</li><li class="is-price">dès 60 €</li>
+        </ul>
+        <a class="plate-cta" href="experiences.html#passager">Découvrir</a>
+      </article>
+      <article class="plate reveal">
+        <span class="plate-no">Intensité III</span>
+        <figure class="plate-figure"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-roadster"/></svg></figure>
+        <h3>Prendre le volant</h3>
+        <p>Vous conduisez. 25 à 30 km sur route ouverte au volant d'un véhicule de la collection, accompagné par nos soins.</p>
+        <ul class="plate-meta">
+          <li>25–30 km</li><li>Permis B</li><li class="is-price">dès 250 €</li>
+        </ul>
+        <a class="plate-cta" href="experiences.html#conduite">Découvrir</a>
+      </article>
+      <article class="plate reveal">
+        <span class="plate-no">Intensité IV</span>
+        <figure class="plate-figure"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-racer"/></svg></figure>
+        <h3>Le bon cadeau</h3>
+        <p>Offrez l'une de ces expériences — le plus beau cadeau qu'on puisse faire à un amoureux d'automobile.</p>
+        <ul class="plate-meta">
+          <li>Toutes formules</li><li>Validité souple</li><li class="is-price">à la carte</li>
+        </ul>
+        <a class="plate-cta" href="tarifs.html#bon-cadeau">Offrir</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COLLECTION (aperçu) ===================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">La collection</p>
+      <h2 class="display-2">Du Hummer à la Ford GT40, en passant par la Lagonda</h2>
+      <p>Une collection volontairement inclassable&nbsp;: des sportives, des majestés anglaises, des américaines à ailerons, des motos et des engins que l'on ne croise nulle part ailleurs.</p>
+    </div>
+
+    <div class="universe reveal">
+      <figure class="universe-art"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-racer"/></svg></figure>
+      <div>
+        <h3>Sportives &amp; grand tourisme</h3>
+        <p class="muted">Les silhouettes qui ont écrit la légende de la route et des circuits.</p>
+        <ul class="marques"><li>Ford GT40</li><li>Lamborghini</li><li>Ferrari</li><li>Jaguar</li></ul>
+      </div>
+    </div>
+    <div class="universe reveal">
+      <figure class="universe-art"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-limo"/></svg></figure>
+      <div>
+        <h3>Les majestés</h3>
+        <p class="muted">Limousines et grandes anglaises — l'élégance en habit de gala.</p>
+        <ul class="marques"><li>Rolls-Royce</li><li>Lagonda</li><li>Limousines</li></ul>
+      </div>
+    </div>
+    <div class="universe reveal">
+      <figure class="universe-art"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-cab"/></svg></figure>
+      <div>
+        <h3>L'Amérique</h3>
+        <p class="muted">Chromes, ailerons et démesure — le rêve américain grandeur nature.</p>
+        <ul class="marques"><li>Cadillac Series 62</li><li>Hummer</li></ul>
+      </div>
+    </div>
+    <div class="universe reveal">
+      <figure class="universe-art"><svg viewBox="0 0 640 210" aria-hidden="true"><use href="#car-4x4"/></svg></figure>
+      <div>
+        <h3>Atypiques &amp; deux-roues</h3>
+        <p class="muted">Motos, trois-roues Vanderhall, engins militaires et curiosités mécaniques.</p>
+        <ul class="marques"><li>Vanderhall Venice</li><li>Motos</li><li>Curiosités</li></ul>
+      </div>
+    </div>
+
+    <div class="hero-actions" style="margin-top: 2.6rem;">
+      <a class="btn btn-ghost" href="collection.html">Parcourir la collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAXIME ===================== -->
+<div class="section-alt">
+  <figure class="maxim wrap">
+    <blockquote>«&nbsp;Une voiture de légende ne se visite pas. Elle se <strong>vit</strong>.&nbsp;»</blockquote>
+    <figcaption>La devise de la maison — Jallais, Anjou</figcaption>
+  </figure>
+</div>
+
+<!-- ===================== BON CADEAU ===================== -->
+<section class="gift-band">
+  <div class="wrap">
+    <div>
+      <h2>Le cadeau dont il se souviendra toute sa vie.</h2>
+      <p>Bons cadeaux pour toutes les expériences — anniversaires, fêtes des pères et des mères, départs en retraite.</p>
+    </div>
+    <a class="btn" href="tarifs.html#bon-cadeau">Offrir une expérience</a>
+  </div>
+</section>
+
+<!-- ===================== INFOS PRATIQUES ===================== -->
+<section class="section" id="infos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Infos pratiques</p>
+      <h2 class="display-2">Entre Cholet et Angers, au cœur des Mauges</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="info-card reveal">
+        <h3>Nous trouver</h3>
+        <dl>
+          <div><dt>Adresse</dt><dd>10 route d'Andrezé<br>Jallais — 49510 Beaupréau-en-Mauges</dd></div>
+          <div><dt>Repère</dt><dd>Entre Cholet et Angers, au cœur des Mauges</dd></div>
+          <div><dt>Itinéraire</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Prestige+et+Collection+10+route+d'Andrez%C3%A9+49510+Jallais" rel="noopener" target="_blank">Google Maps</a> · <a href="https://waze.com/ul?q=10%20route%20d'Andrez%C3%A9%2049510%20Jallais&amp;navigate=yes" rel="noopener" target="_blank">Waze</a></dd></div>
+        </dl>
+      </div>
+      <div class="info-card reveal">
+        <h3>Réserver</h3>
+        <dl>
+          <div><dt>Ouverture</dt><dd>Uniquement sur rendez-vous — semaine et week-end</dd></div>
+          <div><dt>Téléphone</dt><dd><a class="phone-big" href="tel:+33788472376">07 88 47 23 76</a></dd></div>
+          <div><dt>Écrire</dt><dd><a href="mailto:info@prestigeetcollection.com">info@prestigeetcollection.com</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINALE ===================== -->
+<section class="finale section-alt">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center;">Contact &amp; réservation</p>
+    <h2>La collection vous attend, moteur chaud.</h2>
+    <p class="lede" style="text-align:center;">Appelez-nous pour composer votre visite, votre baptême ou votre tour au volant — chaque rendez-vous est préparé sur mesure.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:+33788472376">07 88 47 23 76</a>
+      <a class="btn btn-ghost" href="contact.html">Écrire un message</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== PIED DE PAGE ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" style="color:inherit;">
+          <svg class="brand-mark" aria-hidden="true" style="color:inherit;"><use href="#pc-wheel"/></svg>
+          <span class="brand-name">Prestige &amp; Collection<small style="color:inherit;opacity:.7;">Musée automobile vivant</small></span>
+        </a>
+        <p>Le seul musée de France où les véhicules de légende se visitent, s'écoutent… et se conduisent. Sur rendez-vous, à Jallais en Anjou.</p>
+      </div>
+      <div>
+        <h4>Le musée</h4>
+        <ul>
+          <li><a href="collection.html">La collection</a></li>
+          <li><a href="experiences.html">Les expériences</a></li>
+          <li><a href="tarifs.html">Tarifs 2026</a></li>
+          <li><a href="tarifs.html#bon-cadeau">Bons cadeaux</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+33788472376">07 88 47 23 76</a></li>
+          <li><a href="mailto:info@prestigeetcollection.com">info@prestigeetcollection.com</a></li>
+          <li>10 route d'Andrezé, 49510 Jallais</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Prestige &amp; Collection — Jallais, Anjou</span>
+      <span>Visites et expériences uniquement sur rendez-vous</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
