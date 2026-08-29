@@ -1,28 +1,30 @@
 /* ==========================================================================
    PRESTIGE & COLLECTION — Le musée que l'on peut conduire
-   Design « Catalogue d'atelier » : papier ivoire, encre bleu de France,
-   rouge course en accent. Mode sombre : le cyanotype (blueprint de nuit).
+   Design « La nuit à l'atelier » : anthracite chaud, ivoire, or champagne —
+   les dessins des voitures en gravures dorées. Thème clair : ivoire & bronze.
    ========================================================================== */
 
 /* ---------- Jetons ------------------------------------------------------ */
 
 :root {
-  /* Papier & encres — le catalogue (thème clair) */
-  --paper:        #f4ecd9;
-  --paper-raised: #efe4c9;
-  --paper-deep:   #e9dcba;
-  --ink:          #1b2d5b;
-  --ink-soft:     #51608a;
-  --ink-faint:    rgba(27, 45, 91, 0.38);
-  --line:         rgba(27, 45, 91, 0.30);
-  --line-strong:  rgba(27, 45, 91, 0.55);
-  --blue:         #24469e;
-  --red:          #bf3a20;
-  --red-deep:     #a62f18;
-  --on-red:       #f7f0dd;
-  --roundel-face: #faf5e6;
-  --shadow:       0 14px 34px -18px rgba(27, 45, 91, 0.45);
-  --grain-opacity: 0.5;
+  /* L'écrin — la nuit à l'atelier (thème sombre, par défaut) */
+  --paper:        #161412;
+  --paper-raised: #1d1a16;
+  --paper-deep:   #262019;
+  --ink:          #efe7d5;
+  --ink-soft:     #b0a58f;
+  --ink-faint:    rgba(239, 231, 213, 0.35);
+  --line:         rgba(239, 231, 213, 0.16);
+  --line-strong:  rgba(239, 231, 213, 0.34);
+  --draw:         #d3b06a;
+  --accent:       #c9a55b;
+  --accent-deep:  #b8944d;
+  --on-accent:    #17130e;
+  --roundel-face: #1d1a16;
+  --bar-bg:       #0e0d0b;
+  --bar-ink:      #e6dcc4;
+  --shadow:       0 18px 40px -18px rgba(0, 0, 0, 0.75);
+  --grain-opacity: 0.4;
 
   --font-display: "Bodoni Moda", "Bodoni MT", "Didot", Georgia, serif;
   --font-body:    "Jost", "Futura", "Century Gothic", "Segoe UI", sans-serif;
@@ -33,49 +35,53 @@
   --section-pad: clamp(4rem, 9vw, 7.5rem);
   --radius: 2px;
 
-  color-scheme: light;
+  color-scheme: dark;
 }
 
-/* Le cyanotype — thème sombre (choix système) */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper:        #0e1729;
-    --paper-raised: #13203a;
-    --paper-deep:   #182747;
-    --ink:          #ece4cb;
-    --ink-soft:     #a7b2d1;
-    --ink-faint:    rgba(236, 228, 203, 0.38);
-    --line:         rgba(236, 228, 203, 0.26);
-    --line-strong:  rgba(236, 228, 203, 0.5);
-    --blue:         #8ea6e0;
-    --red:          #d95c40;
-    --red-deep:     #c44a30;
-    --on-red:       #14100c;
-    --roundel-face: #101c34;
-    --shadow:       0 16px 38px -18px rgba(0, 0, 0, 0.65);
-    --grain-opacity: 0.35;
-    color-scheme: dark;
+/* Ivoire & bronze — thème clair (choix système) */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --paper:        #f6f1e4;
+    --paper-raised: #efe8d6;
+    --paper-deep:   #e8ddc4;
+    --ink:          #26221b;
+    --ink-soft:     #6d6350;
+    --ink-faint:    rgba(38, 34, 27, 0.4);
+    --line:         rgba(38, 34, 27, 0.22);
+    --line-strong:  rgba(38, 34, 27, 0.45);
+    --draw:         #a07f2e;
+    --accent:       #86641d;
+    --accent-deep:  #6f5316;
+    --on-accent:    #f8f3e6;
+    --roundel-face: #faf5e8;
+    --bar-bg:       #201c16;
+    --bar-ink:      #f2ead6;
+    --shadow:       0 14px 34px -18px rgba(38, 34, 27, 0.4);
+    --grain-opacity: 0.5;
+    color-scheme: light;
   }
 }
 
-/* Le cyanotype — thème sombre (choix explicite) */
-:root[data-theme="dark"] {
-  --paper:        #0e1729;
-  --paper-raised: #13203a;
-  --paper-deep:   #182747;
-  --ink:          #ece4cb;
-  --ink-soft:     #a7b2d1;
-  --ink-faint:    rgba(236, 228, 203, 0.38);
-  --line:         rgba(236, 228, 203, 0.26);
-  --line-strong:  rgba(236, 228, 203, 0.5);
-  --blue:         #8ea6e0;
-  --red:          #d95c40;
-  --red-deep:     #c44a30;
-  --on-red:       #14100c;
-  --roundel-face: #101c34;
-  --shadow:       0 16px 38px -18px rgba(0, 0, 0, 0.65);
-  --grain-opacity: 0.35;
-  color-scheme: dark;
+/* Ivoire & bronze — thème clair (choix explicite) */
+:root[data-theme="light"] {
+  --paper:        #f6f1e4;
+  --paper-raised: #efe8d6;
+  --paper-deep:   #e8ddc4;
+  --ink:          #26221b;
+  --ink-soft:     #6d6350;
+  --ink-faint:    rgba(38, 34, 27, 0.4);
+  --line:         rgba(38, 34, 27, 0.22);
+  --line-strong:  rgba(38, 34, 27, 0.45);
+  --draw:         #a07f2e;
+  --accent:       #86641d;
+  --accent-deep:  #6f5316;
+  --on-accent:    #f8f3e6;
+  --roundel-face: #faf5e8;
+  --bar-bg:       #201c16;
+  --bar-ink:      #f2ead6;
+  --shadow:       0 14px 34px -18px rgba(38, 34, 27, 0.4);
+  --grain-opacity: 0.5;
+  color-scheme: light;
 }
 
 /* ---------- Socle ------------------------------------------------------- */
@@ -130,15 +136,15 @@ p { margin: 0 0 1.1em; max-width: var(--measure); }
 p:last-child { margin-bottom: 0; }
 
 a { color: inherit; text-decoration-color: var(--ink-faint); text-underline-offset: 3px; }
-a:hover { text-decoration-color: var(--red); }
+a:hover { text-decoration-color: var(--accent); }
 
 :focus-visible {
-  outline: 2px solid var(--red);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: var(--radius);
 }
 
-::selection { background: var(--blue); color: var(--paper); }
+::selection { background: var(--accent); color: var(--on-accent); }
 
 .skip-link {
   position: absolute;
@@ -169,13 +175,13 @@ a:hover { text-decoration-color: var(--red); }
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--accent);
 }
 .eyebrow::before {
   content: "";
   width: 2.2rem;
   height: 1px;
-  background: var(--red);
+  background: var(--accent);
   flex: none;
 }
 
@@ -187,7 +193,7 @@ a:hover { text-decoration-color: var(--red); }
 .display-3 { font-size: clamp(1.45rem, 2.4vw, 1.9rem); }
 
 em, .swash { font-style: italic; }
-.display-1 em, .display-2 em { color: var(--red); font-weight: 500; }
+.display-1 em, .display-2 em { color: var(--accent); font-weight: 500; }
 
 .lede {
   font-size: clamp(1.1rem, 1.7vw, 1.3rem);
@@ -222,7 +228,7 @@ em, .swash { font-style: italic; }
   display: block;
   width: 100%;
   height: 14px;
-  color: var(--red);
+  color: var(--accent);
 }
 
 /* Cocarde de rallye */
@@ -238,7 +244,7 @@ em, .swash { font-style: italic; }
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 1.05rem;
-  color: var(--red);
+  color: var(--accent);
   flex: none;
 }
 
@@ -254,16 +260,12 @@ em, .swash { font-style: italic; }
 /* ---------- Bandeau supérieur & entête ---------------------------------- */
 
 .topbar {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--bar-bg);
+  color: var(--bar-ink);
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-:root[data-theme="dark"] .topbar { background: var(--paper-raised); color: var(--ink); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .topbar { background: var(--paper-raised); color: var(--ink); }
 }
 .topbar .wrap {
   display: flex;
@@ -272,7 +274,7 @@ em, .swash { font-style: italic; }
   padding-block: 0.45rem;
 }
 .topbar a { text-decoration: none; }
-.topbar a:hover { color: var(--red); }
+.topbar a:hover { color: var(--draw); }
 .topbar .topbar-place { opacity: 0.85; }
 @media (max-width: 640px) { .topbar .topbar-place { display: none; } }
 
@@ -302,7 +304,7 @@ em, .swash { font-style: italic; }
   margin-right: auto;
 }
 .brand-mark { flex: none; width: 2.9rem; height: 2.9rem; color: var(--ink); }
-.brand-mark .brand-amp { color: var(--red); }
+.brand-mark .brand-amp { color: var(--accent); }
 .brand-name {
   font-family: var(--font-body);
   font-weight: 500;
@@ -330,7 +332,7 @@ em, .swash { font-style: italic; }
   border-bottom: 2px solid transparent;
 }
 .site-nav a:hover { border-bottom-color: var(--ink-faint); }
-.site-nav a[aria-current="page"] { border-bottom-color: var(--red); color: var(--red); }
+.site-nav a[aria-current="page"] { border-bottom-color: var(--accent); color: var(--accent); }
 
 .nav-toggle {
   display: none;
@@ -385,12 +387,12 @@ em, .swash { font-style: italic; }
 .btn:active { transform: translateY(1px); }
 
 .btn-primary {
-  background: var(--red);
-  border-color: var(--red);
-  color: var(--on-red);
-  box-shadow: 0 8px 18px -10px var(--red);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 8px 18px -10px var(--accent);
 }
-.btn-primary:hover { background: var(--red-deep); border-color: var(--red-deep); }
+.btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
 
 .btn-ghost {
   background: transparent;
@@ -423,7 +425,7 @@ em, .swash { font-style: italic; }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2.8rem; }
 
-.hero-art { position: relative; color: var(--blue); }
+.hero-art { position: relative; color: var(--draw); }
 .hero-art .car-drawing { width: 100%; }
 .hero-art figcaption {
   display: flex;
@@ -499,7 +501,7 @@ em, .swash { font-style: italic; }
 }
 
 .plate-figure {
-  color: var(--blue);
+  color: var(--draw);
   margin: 0 0 1.2rem;
   padding-bottom: 1.1rem;
   border-bottom: 1px dashed var(--line);
@@ -526,7 +528,7 @@ em, .swash { font-style: italic; }
   color: var(--ink-soft);
   white-space: nowrap;
 }
-.plate-meta li.is-price { border-color: var(--red); color: var(--red); font-weight: 500; }
+.plate-meta li.is-price { border-color: var(--accent); color: var(--accent); font-weight: 500; }
 
 .plate-cta {
   margin-top: auto;
@@ -536,11 +538,11 @@ em, .swash { font-style: italic; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--red);
+  color: var(--accent);
   border-bottom: 1.5px solid currentColor;
   padding-bottom: 0.15rem;
 }
-.plate-cta:hover { color: var(--red-deep); }
+.plate-cta:hover { color: var(--accent-deep); }
 
 .plate-no {
   position: absolute;
@@ -561,7 +563,7 @@ em, .swash { font-style: italic; }
 }
 .credo article { border-top: 2px solid var(--ink); padding-top: 1.3rem; }
 .credo h3 { font-size: 1.5rem; }
-.credo h3 em { color: var(--red); }
+.credo h3 em { color: var(--accent); }
 .credo p { font-size: 0.99rem; color: var(--ink-soft); }
 
 /* ---------- Univers de la collection ------------------------------------- */
@@ -581,7 +583,7 @@ em, .swash { font-style: italic; }
   .universe:nth-child(even) .universe-art { order: 0; }
 }
 
-.universe-art { color: var(--blue); }
+.universe-art { color: var(--draw); }
 .universe h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
 .universe .marques {
   margin: 1rem 0 0;
@@ -617,7 +619,7 @@ em, .swash { font-style: italic; }
   line-height: 1.25;
   text-wrap: balance;
 }
-.maxim blockquote strong { color: var(--red); font-weight: 500; font-style: italic; }
+.maxim blockquote strong { color: var(--accent); font-weight: 500; font-style: italic; }
 .maxim figcaption {
   margin-top: 1.6rem;
   font-size: 0.78rem;
@@ -692,7 +694,7 @@ table.price-table {
 .price-table .price {
   font-family: var(--font-display);
   font-size: 1.45rem;
-  color: var(--red);
+  color: var(--accent);
   white-space: nowrap;
 }
 .price-table .price small { font-family: var(--font-body); font-size: 0.72rem; color: var(--ink-soft); }
@@ -726,7 +728,7 @@ table.price-table {
 }
 .info-card dd { margin: 0.1rem 0 0; font-size: 1.02rem; }
 .info-card dd a { text-decoration: none; border-bottom: 1px solid var(--ink-faint); }
-.info-card dd a:hover { border-bottom-color: var(--red); color: var(--red); }
+.info-card dd a:hover { border-bottom-color: var(--accent); color: var(--accent); }
 .info-card .phone-big {
   font-family: var(--font-display);
   font-size: 1.7rem;
@@ -755,7 +757,7 @@ table.price-table {
 }
 .form-grid textarea { resize: vertical; min-height: 7.5rem; }
 .form-grid input:focus, .form-grid select:focus, .form-grid textarea:focus {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--draw);
   outline-offset: 1px;
 }
 .form-hint { font-size: 0.82rem; color: var(--ink-soft); }
@@ -779,7 +781,7 @@ table.price-table {
 .faq summary::after {
   content: "+";
   font-family: var(--font-mono);
-  color: var(--red);
+  color: var(--accent);
   flex: none;
 }
 .faq details[open] summary::after { content: "–"; }
@@ -798,17 +800,14 @@ table.price-table {
 /* ---------- Pied de page ----------------------------------------------------- */
 
 .site-footer {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--bar-bg);
+  color: var(--bar-ink);
+  border-top: 1px solid var(--line);
   padding-block: 3.2rem 2rem;
   font-size: 0.92rem;
 }
-:root[data-theme="dark"] .site-footer { background: var(--paper-raised); color: var(--ink); border-top: 1px solid var(--line); }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .site-footer { background: var(--paper-raised); color: var(--ink); border-top: 1px solid var(--line); }
-}
 .site-footer a { text-decoration: none; opacity: 0.85; }
-.site-footer a:hover { opacity: 1; color: var(--red); }
+.site-footer a:hover { opacity: 1; color: var(--draw); }
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -854,8 +853,8 @@ table.price-table {
 /* ---------- Bandeau annonce (bon cadeau) ------------------------------------- */
 
 .gift-band {
-  background: var(--red);
-  color: var(--on-red);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 .gift-band .wrap {
   display: flex;
@@ -871,9 +870,9 @@ table.price-table {
 }
 .gift-band p { margin: 0.2rem 0 0; opacity: 0.9; font-size: 0.98rem; }
 .gift-band .btn {
-  background: var(--on-red);
-  color: var(--red-deep);
-  border-color: var(--on-red);
+  background: var(--on-accent);
+  color: var(--accent-deep);
+  border-color: var(--on-accent);
 }
 .gift-band .btn:hover { transform: translateY(-1px); }
 
@@ -894,7 +893,7 @@ table.price-table {
 }
 .xp:first-of-type { border-top: 0; }
 @media (max-width: 860px) { .xp { grid-template-columns: 1fr; } }
-.xp-side { color: var(--blue); }
+.xp-side { color: var(--draw); }
 .xp-side .xp-fiche {
   margin-top: 1.2rem;
   border: 1px solid var(--line-strong);
@@ -918,7 +917,7 @@ table.price-table {
   padding-top: 0.15rem;
 }
 .xp-fiche dd { margin: 0; font-variant-numeric: tabular-nums; }
-.xp-fiche .price { font-family: var(--font-display); font-size: 1.5rem; color: var(--red); }
+.xp-fiche .price { font-family: var(--font-display); font-size: 1.5rem; color: var(--accent); }
 .xp h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
 .xp h3 { font-size: 1.15rem; margin: 1.6rem 0 0.7rem; }
 .xp ul.xp-points { margin: 0; padding-left: 1.1rem; color: var(--ink-soft); }
@@ -927,7 +926,7 @@ table.price-table {
 
 /* Note encadrée */
 .note {
-  border-left: 3px solid var(--red);
+  border-left: 3px solid var(--accent);
   background: var(--paper-raised);
   padding: 1rem 1.2rem;
   font-size: 0.92rem;

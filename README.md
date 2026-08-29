@@ -5,18 +5,20 @@ le musée automobile vivant de Jallais (Anjou), « le musée que l'on peut condu
 
 ## Le parti pris de design
 
-**« Le catalogue d'atelier »** — un univers visuel puisé dans l'automobilia française
-des années 50-60, loin des clichés « noir et doré » des sites de luxe :
+**« La nuit à l'atelier »** — le musée après la fermeture, les machines sous une
+lumière chaude :
 
-- **Papier ivoire** de carte routière ancienne, **encre bleu de France**, **rouge course**
-  en accent unique (boutons, prix, cocardes) ;
+- **Anthracite chaud** en fond, textes **ivoire**, accent unique **or champagne**
+  (boutons, prix, cocardes) — les codes du prestige automobile, sans surcharge ;
 - Typographies : **Bodoni Moda** (titres — l'esprit des affiches automobiles françaises),
   **Jost** (texte — géométrique façon Futura, la police des brochures d'époque),
   **IBM Plex Mono** (fiches techniques, distances, prix) ;
-- Motifs maison : filets doubles de cadre de carte, itinéraire pointillé, cocardes de
-  rallye numérotées, damier d'arrivée, **dessins des voitures au trait façon blueprint** ;
-- **Mode sombre = le cyanotype** : le catalogue s'inverse en plan d'atelier — traits
-  crème sur bleu nuit (suit le réglage du système, `prefers-color-scheme`).
+- Motifs maison : filets doubles, itinéraire pointillé, cocardes de rallye numérotées,
+  damier d'arrivée, **dessins des voitures au trait, en gravures dorées** ;
+- **Thème clair = ivoire & bronze** : pour les appareils réglés en mode clair, le site
+  se décline en catalogue papier aux encres bronze (`prefers-color-scheme`) ;
+- Toutes les couleurs sont des variables CSS en tête de `assets/css/style.css`
+  (`--paper`, `--ink`, `--accent`, `--draw`…) : la palette entière se change là.
 
 ## Structure
 
