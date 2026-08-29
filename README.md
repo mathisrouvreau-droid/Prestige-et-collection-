@@ -32,6 +32,8 @@ assets/css/style.css   Tout le design (variables en tête de fichier)
 assets/js/main.js      Menu mobile, apparitions au défilement, formulaire mailto
 assets/img/sprite.svg  Source des dessins SVG (copie inline dans chaque page)
 assets/img/favicon.svg Favicon « volant »
+assets/img/photos/     Les 8 photos du site (+ PHOTOS.md, le mode d'emploi)
+outils/                Script de récupération des photos Instagram
 ```
 
 Site **100 % statique** : aucun framework, aucune dépendance, aucune étape de build.
@@ -49,12 +51,16 @@ Deploy from a branch*, choisir la branche et la racine `/`.
    2026 publié (25 € / 60 € / 150 € / dès 250 €) et l'e-mail `info@prestigeetcollection.com`
    provient des annuaires — à confirmer avant mise en ligne. Le téléphone utilisé
    partout est le 07 88 47 23 76.
-2. **Ajouter les vraies photos** (recommandé). Les dessins au trait sont un vrai choix
-   graphique et le site fonctionne tel quel, mais des photos des véhicules feront
-   vendre : remplacer le contenu des blocs `<figure class="hero-art">`,
-   `<figure class="universe-art">` et `<figure class="plate-figure">` par des
-   `<img src="assets/img/photos/….jpg" alt="…">`. Les dessins peuvent rester en
-   habillage des sections secondaires.
+2. **Déposer les 8 photos Instagram.** Le site est déjà câblé pour les photos
+   (accueil, univers de la collection, fiches d'expériences) : des visuels provisoires
+   occupent les emplacements et indiquent chacun le nom de fichier attendu. Depuis un
+   réseau non filtré, lancer `bash outils/recuperer-photos-instagram.sh` (ou enregistrer
+   les photos à la main depuis [instagram.com/prestige_et_collection](https://www.instagram.com/prestige_et_collection/)),
+   puis écraser les 8 fichiers de `assets/img/photos/` en gardant les mêmes noms —
+   marche à suivre détaillée dans `assets/img/photos/PHOTOS.md`. Aucune modification
+   de code n'est nécessaire. (Le téléchargement n'a pas pu être fait depuis
+   l'environnement de développement : l'accès réseau à Instagram y est bloqué par
+   la politique de sécurité.)
 3. **Formulaire de contact.** Sans serveur, le formulaire ouvre la messagerie du
    visiteur (mailto) — honnête et sans maintenance. Pour recevoir les demandes
    directement, brancher un service type Formspree ou le module de formulaire de
