@@ -1,43 +1,48 @@
-# Prestige & Collection — refonte du site
+# Ô Sublime — refonte du site
 
-Refonte complète du site [prestigeetcollection.com](https://www.prestigeetcollection.com) :
-le musée automobile vivant de Jallais (Anjou), « le musée que l'on peut conduire ».
+Refonte complète et modernisée du site [o-sublime.com](https://www.o-sublime.com) :
+**Ô Sublime**, institut de beauté & spa privatif à Jallais (49510 Beaupréau-en-Mauges),
+au cœur des Mauges, entre Cholet, Nantes et Angers.
 
 ## Le parti pris de design
 
-**« La nuit à l'atelier »** — le musée après la fermeture, les machines sous une
-lumière chaude :
+**« Lin & eau profonde »** — un spa lumineux, minéral et chaleureux :
 
-- **Anthracite chaud** en fond, textes **ivoire**, accent unique **or champagne**
-  (boutons, prix, cocardes) — les codes du prestige automobile, sans surcharge ;
-- Typographies : **Bodoni Moda** (titres — l'esprit des affiches automobiles françaises),
-  **Jost** (texte — géométrique façon Futura, la police des brochures d'époque),
-  **IBM Plex Mono** (fiches techniques, distances, prix) ;
-- Motifs maison : filets doubles, itinéraire pointillé, cocardes de rallye numérotées,
-  damier d'arrivée, **dessins des voitures au trait, en gravures dorées** ;
-- **Thème clair = ivoire & bronze** : pour les appareils réglés en mode clair, le site
-  se décline en catalogue papier aux encres bronze (`prefers-color-scheme`) ;
+- Fond **lin chaud**, texte **bleu-noir d'eau profonde**, accent **vert d'eau profond**
+  (boutons, liens) et touches **laiton** (kickers, numéros, filets) ;
+- Typographies : **Cormorant Garamond** (titres, italiques précieuses) et
+  **Manrope** (texte et interface) ;
+- Motif maison : les **ondulations concentriques** du « Ô », comme une goutte
+  dans l'eau — en héros, en filigrane, dans le favicon ;
+- Illustrations au trait (plume, éclair, regard, soleil, cœur) pour les soins
+  sans photo ;
+- **Mode sombre automatique** : le site suit le réglage de l'appareil
+  (`prefers-color-scheme`), en camaïeu nuit d'eau ;
 - Toutes les couleurs sont des variables CSS en tête de `assets/css/style.css`
-  (`--paper`, `--ink`, `--accent`, `--draw`…) : la palette entière se change là.
+  (`--paper`, `--ink`, `--accent`, `--brass`…) : la palette entière se change là.
 
 ## Structure
 
 ```
-index.html          Accueil (héros, credo, expériences, collection, infos pratiques)
-collection.html     Les 4 univers de la collection
-experiences.html    Visite commentée / baptême passager / conduite — fiches détaillées
-tarifs.html         Barème 2026, bons cadeaux, groupes & entreprises
-contact.html        Coordonnées, formulaire, FAQ
+index.html          Accueil : héros, philosophie, spa privatif, soins, escales,
+                    bon cadeau, infos pratiques
+spa.html            Le spa privatif : jacuzzi / sauna infrarouge / hammam,
+                    déroulé, escales spa + soin, abonnements, privatisation
+soins.html          Les soins : visage, corps & massages, épilations,
+                    lumière pulsée, regard, mains & pieds, maquillage &
+                    bronzage, jeunes & ados, fidélité
+contact.html        Coordonnées, horaires, formulaire, FAQ
 assets/css/style.css   Tout le design (variables en tête de fichier)
-assets/js/main.js      Menu mobile, apparitions au défilement, formulaire mailto
-assets/img/sprite.svg  Source des dessins SVG (copie inline dans chaque page)
-assets/img/favicon.svg Favicon « volant »
-assets/img/photos/     Les 8 photos du site (+ PHOTOS.md, le mode d'emploi)
-outils/                Script de récupération des photos Instagram
+assets/js/main.js      Menu mobile, apparitions, formulaire mailto
+assets/img/favicon.svg Favicon « ondulation »
+assets/img/photos/     Les 9 photos du site (+ PHOTOS.md, le mode d'emploi)
+outils/                Script de récupération des photos (site + Instagram)
 ```
 
 Site **100 % statique** : aucun framework, aucune dépendance, aucune étape de build.
-Seule ressource externe : les polices Google Fonts.
+Seule ressource externe : les polices Google Fonts. Données structurées
+`schema.org/BeautySalon` intégrées sur l'accueil (adresse, horaires, téléphone)
+pour le référencement local.
 
 ## Mettre en ligne
 
@@ -45,33 +50,38 @@ N'importe quel hébergement statique convient : le dossier se dépose tel quel
 (OVH, o2switch, Netlify, GitHub Pages…). Pour GitHub Pages : *Settings → Pages →
 Deploy from a branch*, choisir la branche et la racine `/`.
 
-## À faire par le propriétaire du site
+## À faire par la propriétaire du site
 
-1. **Vérifier les tarifs et l'adresse e-mail.** Les prix affichés sont ceux du barème
-   2026 publié (25 € / 60 € / 150 € / dès 250 €) et l'e-mail `info@prestigeetcollection.com`
-   provient des annuaires — à confirmer avant mise en ligne. Le téléphone utilisé
-   partout est le 07 88 47 23 76.
-2. **Déposer les 8 photos Instagram.** Le site est déjà câblé pour les photos
-   (accueil, univers de la collection, fiches d'expériences) : des visuels provisoires
-   occupent les emplacements et indiquent chacun le nom de fichier attendu. Depuis un
-   réseau non filtré, lancer `bash outils/recuperer-photos-instagram.sh` (ou enregistrer
-   les photos à la main depuis [instagram.com/prestige_et_collection](https://www.instagram.com/prestige_et_collection/)),
-   puis écraser les 8 fichiers de `assets/img/photos/` en gardant les mêmes noms —
-   marche à suivre détaillée dans `assets/img/photos/PHOTOS.md`. Aucune modification
-   de code n'est nécessaire. (Le téléchargement n'a pas pu être fait depuis
-   l'environnement de développement : l'accès réseau à Instagram y est bloqué par
-   la politique de sécurité.)
-3. **Formulaire de contact.** Sans serveur, le formulaire ouvre la messagerie du
-   visiteur (mailto) — honnête et sans maintenance. Pour recevoir les demandes
-   directement, brancher un service type Formspree ou le module de formulaire de
-   l'hébergeur (remplacer le gestionnaire `form-contact` dans `assets/js/main.js`).
-4. **Réservation en ligne** (optionnel). Les boutons « Réserver » pointent vers le
-   téléphone et la page contact, fidèle au fonctionnement « sur rendez-vous ». Un module
-   de réservation/paiement pourra s'y greffer plus tard sans toucher au design.
+1. **Déposer les 9 photos.** Le site est déjà câblé : des visuels provisoires
+   occupent les emplacements et indiquent chacun le nom de fichier attendu.
+   Depuis un réseau non filtré, lancer `bash outils/recuperer-photos.sh`
+   (il aspire les images de l'ancien site et, en option, d'Instagram), puis
+   écraser les 9 fichiers de `assets/img/photos/` en gardant les mêmes noms —
+   marche à suivre détaillée dans `assets/img/photos/PHOTOS.md`. Aucune
+   modification de code n'est nécessaire. (Le téléchargement n'a pas pu être
+   fait depuis l'environnement de développement : l'accès réseau à
+   o-sublime.com y est bloqué par la politique de sécurité.)
+2. **Vérifier les informations reprises des annuaires.** Téléphone
+   `06 86 80 18 20`, e-mail `info@o-sublime.com`, horaires (mar.–ven.
+   9 h–12 h / 14 h–19 h, sam. 9 h–17 h), lien de réservation Kalendes, note
+   « 4,9/5 » des avis en ligne : tout provient du site actuel et des annuaires
+   publics — à confirmer avant mise en ligne.
+3. **Les tarifs ne sont pas affichés** (choix assumé : ils vivent déjà sur la
+   réservation en ligne Kalendes et changent avec la carte). Chaque prestation
+   pointe vers la réservation. Pour afficher des prix sur le site, ajouter
+   simplement la ligne voulue dans les listes `care-points` de `soins.html`.
+4. **Formulaire de contact.** Sans serveur, le formulaire ouvre la messagerie
+   du visiteur (mailto) — honnête et sans maintenance. Pour recevoir les
+   demandes directement, brancher un service type Formspree (remplacer le
+   gestionnaire `form-contact` dans `assets/js/main.js` ; l'adresse de
+   réception se règle en tête de ce même fichier).
+5. **Mentions légales.** L'ancien site avait une page « Mentions légales » :
+   à recréer avec les informations de l'entreprise (raison sociale, SIRET,
+   hébergeur) avant la mise en production.
 
 ## Maintenance des pages
 
-Les entêtes, pieds de page et dessins SVG sont dupliqués dans chaque page (choix
-assumé d'un site sans build) : toute modification de ces blocs est à reporter dans
-les 5 fichiers HTML. Les couleurs et polices se règlent en tête de
-`assets/css/style.css` (variables `--paper`, `--ink`, `--red`, etc.).
+Les entêtes et pieds de page sont dupliqués dans chaque page (choix assumé d'un
+site sans build) : toute modification de ces blocs est à reporter dans les
+4 fichiers HTML. Les couleurs et polices se règlent en tête de
+`assets/css/style.css`.

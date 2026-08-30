@@ -5,43 +5,47 @@ un visuel provisoire qui indique le nom de fichier attendu. Il suffit de **rempl
 chaque fichier par la photo choisie, en gardant exactement le même nom** — aucune
 modification du code n'est nécessaire.
 
-## Les 8 emplacements
+## Les 9 emplacements
 
-| Fichier                  | Où il apparaît                              | Photo idéale |
-|--------------------------|---------------------------------------------|--------------|
-| `hero.jpg`               | Accueil, image principale                    | La plus belle vue du musée ou d'un véhicule phare (cadrage horizontal) |
-| `univers-sportives.jpg`  | Accueil + Collection — « Sportives & GT »    | GT40, Ferrari, Lamborghini… |
-| `univers-majestes.jpg`   | Accueil + Collection — « Les majestés »      | Rolls-Royce, Lagonda, limousine |
-| `univers-amerique.jpg`   | Accueil + Collection — « L'Amérique »        | Cadillac, Hummer, chromes |
-| `univers-atypiques.jpg`  | Accueil + Collection — « Les inclassables »  | Vanderhall, moto, curiosité |
-| `xp-visite.jpg`          | Expériences — la visite commentée            | Visiteurs dans le musée, montée à bord |
-| `xp-passager.jpg`        | Expériences — le baptême passager            | Cabriolet ou Vanderhall sur route |
-| `xp-conduite.jpg`        | Expériences — prendre le volant              | Conducteur au volant, mains sur le volant |
+| Fichier            | Où il apparaît                                   | Photo idéale |
+|--------------------|--------------------------------------------------|--------------|
+| `hero.jpg`         | Accueil — grande image d'entrée (cadrage vertical) | La plus belle ambiance de l'institut : cabine, spa, matières |
+| `spa-privatif.jpg` | Page spa — bandeau large sous le titre            | Vue d'ensemble de l'espace spa (cadrage horizontal) |
+| `spa-jacuzzi.jpg`  | Accueil + page spa — tuile « Le jacuzzi »         | Le jacuzzi, eau en mouvement |
+| `spa-sauna.jpg`    | Accueil + page spa — tuile « Le sauna infrarouge »| Le sauna, bois chaud et lumière |
+| `spa-hammam.jpg`   | Accueil + page spa — tuile « Le hammam »          | Le hammam, vapeur et mosaïque |
+| `soin-visage.jpg`  | Page soins — section « Soins du visage »          | Un soin visage en cabine, gestes des mains |
+| `soin-corps.jpg`   | Page soins — section « Corps & massages »         | Un massage, huiles, serviettes |
+| `soin-mains.jpg`   | Page soins — section « Mains & pieds »            | Manucure, vernis, détail des mains |
+| `institut.jpg`     | Accueil + contact — infos pratiques               | La façade ou l'accueil de l'institut |
 
-## Récupérer les photos depuis Instagram (@prestige_et_collection)
+## Récupérer les photos existantes
 
-Depuis un ordinateur, deux méthodes :
+Les photos de l'ancien site et des réseaux de l'institut sont les meilleures candidates
+(vous en détenez les droits). Depuis un ordinateur **sur un réseau non filtré** :
 
-**Méthode simple (manuelle)** — ouvrir [instagram.com/prestige_et_collection](https://www.instagram.com/prestige_et_collection/),
-choisir une publication, clic droit sur l'image → « Enregistrer l'image sous… »,
-puis renommer le fichier selon le tableau ci-dessus et le déposer dans ce dossier.
-
-**Méthode groupée (tout télécharger d'un coup)** — lancer le script fourni :
+**Méthode groupée** — lancer le script fourni, qui aspire les images de
+[o-sublime.com](https://www.o-sublime.com) (et, en option, d'Instagram) :
 
 ```bash
-bash outils/recuperer-photos-instagram.sh
+bash outils/recuperer-photos.sh
 ```
 
-Il télécharge toutes les photos du compte dans un dossier local ; il ne reste
-qu'à choisir les 8 meilleures et à les renommer.
+Les images arrivent dans `photos-recuperees/` ; il ne reste qu'à choisir les 9
+meilleures, les renommer selon le tableau ci-dessus et les déposer dans ce dossier.
+
+**Méthode manuelle** — ouvrir [o-sublime.com](https://www.o-sublime.com) ou
+[instagram.com/osublime.institutspa](https://www.instagram.com/osublime.institutspa/),
+clic droit sur une image → « Enregistrer l'image sous… », renommer, déposer ici.
 
 ## Bon à savoir
 
-- **Formats** : n'importe quelles dimensions conviennent (le site recadre
-  automatiquement en 3:2, et 16:10 pour `hero.jpg`) ; visez au moins 1200 px de large.
+- **Formats** : n'importe quelles dimensions conviennent — le site recadre
+  automatiquement (4:5 pour `hero.jpg` et les sections de soins, 4:3 pour les tuiles,
+  16:9 pour `spa-privatif.jpg`). Visez au moins 1200 px de large.
 - **Poids** : pour un site rapide, compressez les photos (par ex. [squoosh.app](https://squoosh.app),
   qualité ~80) — idéalement moins de 300 Ko par image.
-- **Droits** : utilisez uniquement des photos dont le musée détient les droits
-  (celles de son propre compte Instagram en font partie).
+- **Droits** : utilisez uniquement des photos dont l'institut détient les droits
+  (celles de son site et de ses comptes Instagram/Facebook en font partie).
 - Les visuels provisoires de ce dossier peuvent être écrasés sans regret :
-  ils sont regénérables et ne servent qu'à montrer les emplacements.
+  ils ne servent qu'à montrer les emplacements.
