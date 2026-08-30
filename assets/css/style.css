@@ -1,10 +1,11 @@
 /* ==========================================================================
    Ô SUBLIME — institut de beauté & spa privatif, Jallais (Beaupréau-en-Mauges)
    Design « Noir, ivoire & or » : chic & cocooning, calé sur le logo —
+   version claire unique (pas de bascule sombre automatique) —
    la couronne de feuilles d'or (#B08C43), le noir du wordmark, l'ivoire.
    --------------------------------------------------------------------------
-   Toute la palette se règle ici. Le site suit le réglage clair/sombre de
-   l'appareil (prefers-color-scheme) ; le mode clair est la référence.
+   Toute la palette se règle ici. Le site affiche la même version claire
+   sur tous les appareils, quel que soit leur réglage clair/sombre.
    ========================================================================== */
 
 :root {
@@ -38,26 +39,6 @@
   color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #1C1813;
-    --paper-2: #15120D;
-    --card: #282318;
-    --ink: #F1EADA;
-    --soft: #B3A88C;
-    --accent: #CBA655;
-    --accent-2: #DAB765;
-    --on-accent: #241D10;
-    --brass: #CBA655;
-    --cocoon: #26211A;
-    --cocoon-ink: #F3EDDF;
-    --gold: #CBA655;
-    --line: rgba(241, 234, 218, .15);
-    --halo: rgba(203, 166, 85, .12);
-    --shadow: 0 26px 54px -24px rgba(0, 0, 0, .55);
-    color-scheme: dark;
-  }
-}
 
 /* ==========================================================================
    Base
@@ -568,12 +549,8 @@ em, .accent-i { font-style: italic; }
   padding: clamp(52px, 7vw, 84px) 0 34px;
   margin-top: clamp(56px, 8vw, 96px);
 }
-@media (prefers-color-scheme: dark) {
-  .site-foot { background: var(--paper-2); border-top: 1px solid var(--line); }
-}
 .site-foot a { color: inherit; }
 .site-foot a:hover { color: #fff; }
-@media (prefers-color-scheme: dark) { .site-foot a:hover { color: var(--accent-2); } }
 
 .foot-grid {
   display: grid; gap: 36px;

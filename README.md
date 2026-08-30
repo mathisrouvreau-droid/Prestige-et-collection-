@@ -24,8 +24,9 @@ au cœur des Mauges, entre Cholet, Nantes et Angers.
   dans l'eau — en héros, en filigrane, dans le favicon ;
 - Illustrations au trait (plume, éclair, regard, soleil, cœur) pour les soins
   sans photo ;
-- **Mode sombre automatique** : le site suit le réglage de l'appareil
-  (`prefers-color-scheme`), en camaïeu « quartz fumé » ;
+- **Version claire unique** : le site affiche la même identité ivoire/or sur
+  tous les appareils, y compris ceux réglés en mode sombre (choix assumé —
+  seuls les écrins et le pied de page sont volontairement sombres) ;
 - Toutes les couleurs sont des variables CSS en tête de `assets/css/style.css`
   (`--paper`, `--ink`, `--accent`, `--brass`…) : la palette entière se change là.
 
