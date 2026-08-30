@@ -6,10 +6,11 @@ au cœur des Mauges, entre Cholet, Nantes et Angers.
 
 ## Le parti pris de design
 
-**« Lin & eau profonde »** — un spa lumineux, minéral et chaleureux :
+**« Quartz, crème & blanc »** — un spa lumineux, poudré et minéral :
 
-- Fond **lin chaud**, texte **bleu-noir d'eau profonde**, accent **vert d'eau profond**
-  (boutons, liens) et touches **laiton** (kickers, numéros, filets) ;
+- Fond **blanc crème**, cartes **blanc pur**, sections alternées **quartz voilé**,
+  texte **quartz fumé profond**, accent **quartz rose** (boutons, liens) et touches
+  **or champagne** (kickers, numéros, filets) ;
 - Typographies : **Cormorant Garamond** (titres, italiques précieuses) et
   **Manrope** (texte et interface) ;
 - Motif maison : les **ondulations concentriques** du « Ô », comme une goutte
@@ -17,7 +18,7 @@ au cœur des Mauges, entre Cholet, Nantes et Angers.
 - Illustrations au trait (plume, éclair, regard, soleil, cœur) pour les soins
   sans photo ;
 - **Mode sombre automatique** : le site suit le réglage de l'appareil
-  (`prefers-color-scheme`), en camaïeu nuit d'eau ;
+  (`prefers-color-scheme`), en camaïeu « quartz fumé » ;
 - Toutes les couleurs sont des variables CSS en tête de `assets/css/style.css`
   (`--paper`, `--ink`, `--accent`, `--brass`…) : la palette entière se change là.
 

@@ -1,6 +1,6 @@
 /* ==========================================================================
    Ô SUBLIME — institut de beauté & spa privatif, Jallais (Beaupréau-en-Mauges)
-   Design « Lin & eau profonde » : spa lumineux, minéral, chaleureux.
+   Design « Quartz, crème & blanc » : spa lumineux, poudré, minéral.
    --------------------------------------------------------------------------
    Toute la palette se règle ici. Le site suit le réglage clair/sombre de
    l'appareil (prefers-color-scheme) ; le mode clair est la référence.
@@ -8,18 +8,18 @@
 
 :root {
   /* — Palette (mode clair) — */
-  --paper: #F6F1E8;        /* fond : lin chaud                  */
-  --paper-2: #EEE6D7;      /* sections alternées                */
-  --card: #FDFBF5;         /* cartes, panneaux                  */
-  --ink: #24333A;          /* texte : bleu-noir d'eau profonde  */
-  --soft: #52646B;         /* texte secondaire                  */
-  --accent: #2F6169;       /* eau profonde : boutons, liens     */
-  --accent-2: #24505A;     /* survol                            */
-  --on-accent: #F8F5EE;    /* texte posé sur l'accent           */
-  --brass: #A07A3E;        /* laiton : kickers, numéros, filets */
-  --line: rgba(36, 51, 58, .16);
-  --halo: rgba(47, 97, 105, .10);
-  --shadow: 0 18px 40px -18px rgba(36, 51, 58, .28);
+  --paper: #FBF8F3;        /* fond : blanc crème                    */
+  --paper-2: #F5EBE6;      /* sections alternées : quartz voilé     */
+  --card: #FFFFFF;         /* cartes, panneaux : blanc pur          */
+  --ink: #3B3336;          /* texte : quartz fumé profond           */
+  --soft: #756A6D;         /* texte secondaire                      */
+  --accent: #9C6361;       /* quartz rose profond : boutons, liens  */
+  --accent-2: #84504F;     /* survol                                */
+  --on-accent: #FFF9F5;    /* texte posé sur l'accent               */
+  --brass: #9C7B45;        /* or champagne : kickers, numéros       */
+  --line: rgba(59, 51, 54, .15);
+  --halo: rgba(156, 99, 97, .09);
+  --shadow: 0 18px 40px -18px rgba(59, 51, 54, .26);
 
   /* — Typographies — */
   --serif: "Cormorant Garamond", "Georgia", serif;
@@ -36,17 +36,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #101B1E;
-    --paper-2: #0C1518;
-    --card: #17262A;
-    --ink: #EDE6D8;
-    --soft: #9FB0B0;
-    --accent: #8FC2C6;
-    --accent-2: #A9D2D5;
-    --on-accent: #0E1B1E;
-    --brass: #CFA968;
-    --line: rgba(237, 230, 216, .15);
-    --halo: rgba(143, 194, 198, .10);
+    --paper: #211B1E;
+    --paper-2: #1A1518;
+    --card: #2B2327;
+    --ink: #F1EAE4;
+    --soft: #B5A7A7;
+    --accent: #D9A8A1;
+    --accent-2: #E5BDB7;
+    --on-accent: #2A1D1E;
+    --brass: #D4B078;
+    --line: rgba(241, 234, 228, .15);
+    --halo: rgba(217, 168, 161, .10);
     --shadow: 0 18px 40px -18px rgba(0, 0, 0, .55);
     color-scheme: dark;
   }
@@ -72,6 +72,7 @@ body {
 }
 
 img { max-width: 100%; display: block; }
+figure { margin: 0; }
 
 h1, h2, h3, h4 {
   font-family: var(--serif);
@@ -159,7 +160,7 @@ em, .accent-i { font-style: italic; }
 }
 .site-head.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 10px 30px -22px rgba(36, 51, 58, .45);
+  box-shadow: 0 10px 30px -22px rgba(59, 51, 54, .45);
 }
 
 .site-head__row {
@@ -268,7 +269,7 @@ em, .accent-i { font-style: italic; }
   background: var(--paper-2);
   box-shadow: var(--shadow);
 }
-.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo img { width: 100%; height: auto; object-fit: cover; }
 .photo--arch { border-radius: var(--r-pill) var(--r-pill) var(--r-lg) var(--r-lg); }
 .photo--43 img { aspect-ratio: 4 / 3; }
 .photo--32 img { aspect-ratio: 3 / 2; }
@@ -523,8 +524,8 @@ em, .accent-i { font-style: italic; }
    ========================================================================== */
 
 .site-foot {
-  background: #16252B;
-  color: #D8DDD3;
+  background: #2E2528;
+  color: #E6DCD6;
   padding: clamp(52px, 7vw, 84px) 0 34px;
   margin-top: clamp(56px, 8vw, 96px);
 }
@@ -539,16 +540,16 @@ em, .accent-i { font-style: italic; }
   display: grid; gap: 36px;
   grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(216, 221, 211, .18);
+  border-bottom: 1px solid rgba(230, 220, 214, .18);
 }
-.foot-brand .brand__mark { color: #CFA968; }
+.foot-brand .brand__mark { color: #D4B078; }
 .foot-brand .brand { color: inherit; margin-bottom: 16px; }
 .foot-brand p { color: inherit; opacity: .75; font-size: .95rem; max-width: 34em; }
 
 .site-foot h4 {
   font: 700 .72rem/1 var(--sans);
   letter-spacing: .22em; text-transform: uppercase;
-  color: #CFA968; margin: 6px 0 18px;
+  color: #D4B078; margin: 6px 0 18px;
 }
 .site-foot ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; font-size: .96rem; }
 .site-foot ul span { opacity: .72; }
