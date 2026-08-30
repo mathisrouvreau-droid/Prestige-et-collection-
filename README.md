@@ -6,11 +6,14 @@ au cœur des Mauges, entre Cholet, Nantes et Angers.
 
 ## Le parti pris de design
 
-**« Quartz, crème & blanc »** — un spa lumineux, poudré et minéral :
+**« Quartz, crème & blanc »** — chic & cocooning :
 
-- Fond **blanc crème**, cartes **blanc pur**, sections alternées **quartz voilé**,
-  texte **quartz fumé profond**, accent **quartz rose** (boutons, liens) et touches
-  **or champagne** (kickers, numéros, filets) ;
+- Fond **crème cachemire**, cartes **blanc chaud**, sections alternées **quartz
+  voilé**, texte **quartz fumé profond**, accent **quartz rose** (boutons, liens),
+  touches **or champagne** (kickers, numéros, filets) et **écrins brun profond**
+  (bandeaux bon cadeau / fidélité, pied de page) rehaussés d'or ;
+- Ambiance : lueurs douces en tête de page, liseré « galerie » sur les photos,
+  rayons adoucis, ombres chaudes ;
 - Typographies : **Cormorant Garamond** (titres, italiques précieuses) et
   **Manrope** (texte et interface) ;
 - Motif maison : les **ondulations concentriques** du « Ô », comme une goutte
