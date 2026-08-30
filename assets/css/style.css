@@ -1,29 +1,29 @@
 /* ==========================================================================
    Ô SUBLIME — institut de beauté & spa privatif, Jallais (Beaupréau-en-Mauges)
-   Design « Quartz, crème & blanc » : chic & cocooning — crème cachemire,
-   quartz rose, or champagne, écrins brun profond.
+   Design « Noir, ivoire & or » : chic & cocooning, calé sur le logo —
+   la couronne de feuilles d'or (#AC915A), le noir du wordmark, l'ivoire.
    --------------------------------------------------------------------------
    Toute la palette se règle ici. Le site suit le réglage clair/sombre de
    l'appareil (prefers-color-scheme) ; le mode clair est la référence.
    ========================================================================== */
 
 :root {
-  /* — Palette (mode clair) — */
-  --paper: #F8F2EA;        /* fond : crème cachemire                */
-  --paper-2: #F1E4DC;      /* sections alternées : quartz voilé     */
-  --card: #FFFDF9;         /* cartes, panneaux : blanc chaud        */
-  --ink: #372F2E;          /* texte : quartz fumé profond           */
-  --soft: #776965;         /* texte secondaire                      */
-  --accent: #9C6361;       /* quartz rose profond : boutons, liens  */
-  --accent-2: #83504E;     /* survol                                */
-  --on-accent: #FFF8F2;    /* texte posé sur l'accent               */
-  --brass: #A5824B;        /* or champagne : kickers, numéros       */
-  --cocoon: #322827;       /* l'écrin : bandeaux chic, pied de page */
-  --cocoon-ink: #F3E9DF;
-  --gold: #D3AF77;         /* l'or sur fond sombre                  */
-  --line: rgba(55, 47, 46, .14);
-  --halo: rgba(156, 99, 97, .11);
-  --shadow: 0 26px 54px -24px rgba(74, 56, 50, .32);
+  /* — Palette (mode clair), extraite du logo — */
+  --paper: #F8F3E9;        /* fond : ivoire                          */
+  --paper-2: #F0E8D6;      /* sections alternées : or voilé          */
+  --card: #FFFDF7;         /* cartes, panneaux : blanc chaud         */
+  --ink: #26221C;          /* texte : le noir du wordmark            */
+  --soft: #6F6555;         /* texte secondaire : gris-or             */
+  --accent: #836E44;       /* bronze du logo : boutons, liens        */
+  --accent-2: #6E5C39;     /* survol                                 */
+  --on-accent: #FFFAF0;    /* texte posé sur l'accent                */
+  --brass: #7F6B43;        /* or foncé lisible : kickers, numéros    */
+  --cocoon: #26211A;       /* l'écrin : bandeaux chic, pied de page  */
+  --cocoon-ink: #F3EDDF;
+  --gold: #AC915A;         /* l'or exact de la couronne (fond sombre)*/
+  --line: rgba(38, 34, 28, .16);
+  --halo: rgba(172, 145, 90, .14);
+  --shadow: 0 26px 54px -24px rgba(64, 54, 34, .30);
 
   /* — Typographies — */
   --serif: "Cormorant Garamond", "Georgia", serif;
@@ -40,20 +40,20 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #241D1E;
-    --paper-2: #1D1718;
-    --card: #2E2526;
-    --ink: #F2EBE4;
-    --soft: #B7A8A4;
-    --accent: #D9A8A1;
-    --accent-2: #E5BDB7;
-    --on-accent: #2A1D1E;
-    --brass: #D3AF77;
-    --cocoon: #322827;
-    --cocoon-ink: #F3E9DF;
-    --gold: #D3AF77;
-    --line: rgba(242, 235, 228, .15);
-    --halo: rgba(217, 168, 161, .12);
+    --paper: #1C1813;
+    --paper-2: #15120D;
+    --card: #282318;
+    --ink: #F1EADA;
+    --soft: #B3A88C;
+    --accent: #C8AC6D;
+    --accent-2: #D7BC7E;
+    --on-accent: #241D10;
+    --brass: #C8AC6D;
+    --cocoon: #26211A;
+    --cocoon-ink: #F3EDDF;
+    --gold: #C8AC6D;
+    --line: rgba(241, 234, 218, .15);
+    --halo: rgba(200, 172, 109, .12);
     --shadow: 0 26px 54px -24px rgba(0, 0, 0, .55);
     color-scheme: dark;
   }
@@ -183,7 +183,7 @@ em, .accent-i { font-style: italic; }
   text-decoration: none; color: var(--ink);
   margin-right: auto;
 }
-.brand__mark { width: 44px; height: 44px; flex: none; color: var(--accent); }
+.brand__mark { width: 46px; height: 46px; flex: none; color: var(--accent); object-fit: contain; }
 .brand__name {
   font-family: var(--serif); font-size: 1.5rem; font-weight: 600;
   line-height: 1; letter-spacing: .01em; white-space: nowrap;
@@ -192,7 +192,7 @@ em, .accent-i { font-style: italic; }
   display: block;
   font: 600 .59rem/1.2 var(--sans);
   letter-spacing: .22em; text-transform: uppercase;
-  color: var(--soft); margin-top: 5px;
+  color: var(--brass); margin-top: 5px;
 }
 
 .site-nav { display: flex; align-items: center; gap: clamp(14px, 2.4vw, 30px); }
@@ -525,10 +525,10 @@ em, .accent-i { font-style: italic; }
 .band .kicker { color: var(--gold); }
 .band .kicker::before { background: currentColor; }
 .band__cta { position: relative; z-index: 1; }
-.band .btn--light { background: var(--gold); color: #2A211D; }
+.band .btn--light { background: var(--gold); color: #241D10; }
 .band .btn--light:hover {
-  background: #E2C28C; color: #2A211D;
-  box-shadow: 0 14px 28px -14px rgba(211, 175, 119, .55);
+  background: #C4A96C; color: #241D10;
+  box-shadow: 0 14px 28px -14px rgba(172, 145, 90, .55);
 }
 
 @media (max-width: 880px) { .band { grid-template-columns: 1fr; } }
