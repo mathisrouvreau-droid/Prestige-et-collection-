@@ -9,7 +9,7 @@ modification du code n'est nécessaire.
 
 | Fichier            | Où il apparaît                                   | Photo idéale |
 |--------------------|--------------------------------------------------|--------------|
-| `hero.jpg`         | Accueil — grande image d'entrée (cadrage vertical) | La plus belle ambiance de l'institut : cabine, spa, matières |
+| `hero.jpg`         | Accueil — bandeau d'ambiance panoramique sous le titre | La plus belle ambiance de l'institut : cabine, spa, matières (cadrage large) |
 | `spa-privatif.jpg` | Page spa — bandeau large sous le titre            | Vue d'ensemble de l'espace spa (cadrage horizontal) |
 | `spa-jacuzzi.jpg`  | Accueil + page spa — tuile « Le jacuzzi »         | Le jacuzzi, eau en mouvement |
 | `spa-sauna.jpg`    | Accueil + page spa — tuile « Le sauna infrarouge »| Le sauna, bois chaud et lumière |
@@ -41,8 +41,9 @@ clic droit sur une image → « Enregistrer l'image sous… », renommer, dépos
 ## Bon à savoir
 
 - **Formats** : n'importe quelles dimensions conviennent — le site recadre
-  automatiquement (4:5 pour `hero.jpg` et les sections de soins, 4:3 pour les tuiles,
-  16:9 pour `spa-privatif.jpg`). Visez au moins 1200 px de large.
+  automatiquement (panoramique 21:9 pour `hero.jpg`, 4:5 pour les sections de
+  soins, 4:3 pour les tuiles, 16:9 pour `spa-privatif.jpg`). Visez au moins
+  1200 px de large (1920 px pour `hero.jpg`).
 - **Poids** : pour un site rapide, compressez les photos (par ex. [squoosh.app](https://squoosh.app),
   qualité ~80) — idéalement moins de 300 Ko par image.
 - **Droits** : utilisez uniquement des photos dont l'institut détient les droits

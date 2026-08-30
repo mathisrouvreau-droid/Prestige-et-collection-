@@ -289,16 +289,35 @@ em, .accent-i { font-style: italic; }
     radial-gradient(38% 32% at 2% 100%, color-mix(in srgb, var(--brass) 10%, transparent), transparent 70%);
 }
 
-.hero__grid {
-  display: grid; align-items: center;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-  gap: clamp(36px, 6vw, 84px);
-}
+/* Héros signature : la couronne du logo en majesté, tout est centré */
+.hero--statement { text-align: center; padding-block: clamp(52px, 7vw, 92px) clamp(56px, 7vw, 88px); }
 
 .hero h1 { margin-bottom: .45em; }
 .hero .lead { font-size: clamp(1.08rem, 1.6vw, 1.2rem); color: var(--soft); max-width: 34em; }
+.hero--statement .lead { margin-inline: auto; }
+
+.hero__crest {
+  position: relative;
+  width: clamp(116px, 14vw, 158px);
+  margin: 0 auto 30px;
+}
+.hero__crest::before,
+.hero__crest::after {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--line); border-radius: 50%;
+  pointer-events: none;
+}
+.hero__crest::before { width: 200%; height: 200%; }
+.hero__crest::after { width: 320%; height: 320%; opacity: .55; }
+.hero__crest img {
+  width: 100%; height: auto;
+  animation: couronne-rotation 90s linear infinite;
+}
+@keyframes couronne-rotation { to { transform: rotate(1turn); } }
 
 .hero__cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.hero--statement .hero__cta { justify-content: center; }
 
 .hero__meta {
   display: flex; flex-wrap: wrap; gap: 10px 26px;
@@ -306,36 +325,17 @@ em, .accent-i { font-style: italic; }
   border-top: 1px solid var(--line);
   font-size: .9rem; color: var(--soft);
 }
+.hero--statement .hero__meta {
+  justify-content: center;
+  max-width: 720px; margin-inline: auto;
+}
 .hero__meta strong { color: var(--ink); font-weight: 700; }
+.hero__note { display: inline-flex; align-items: center; gap: 7px; }
+.hero__note svg { width: 16px; height: 16px; color: var(--brass); flex: none; }
 
-.hero__visual { position: relative; }
-.hero__visual .photo img { aspect-ratio: 4 / 5; }
-
-.hero__ripple {
-  position: absolute; z-index: -1;
-  width: 130%; max-width: none;
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
-  color: var(--accent); opacity: .35;
-}
-
-.hero__badge {
-  position: absolute; left: -18px; bottom: 26px;
-  background: var(--card); border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  box-shadow: var(--shadow);
-  padding: 13px 18px;
-  display: flex; align-items: center; gap: 12px;
-}
-.hero__badge svg { width: 30px; height: 30px; color: var(--brass); flex: none; }
-.hero__badge b { display: block; font-size: 1.02rem; line-height: 1.2; }
-.hero__badge span { font-size: .78rem; color: var(--soft); }
-
-@media (max-width: 880px) {
-  .hero__grid { grid-template-columns: 1fr; }
-  .hero__visual { order: -1; max-width: 480px; }
-  .hero__visual .photo img { aspect-ratio: 4 / 3; }
-  .hero__badge { left: 12px; bottom: 12px; }
-}
+/* Bandeau d'ambiance sous le héros */
+.hero-band img { aspect-ratio: 21 / 9; }
+@media (max-width: 700px) { .hero-band img { aspect-ratio: 4 / 3; } }
 
 /* Bandeau des marques */
 .brands {
@@ -736,16 +736,9 @@ em, .accent-i { font-style: italic; }
 .reveal-d2 { transition-delay: .16s; }
 .reveal-d3 { transition-delay: .24s; }
 
-/* Ondulation animée du héros */
-@keyframes ripple-breathe {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.045); }
-}
-.hero__ripple { animation: ripple-breathe 9s ease-in-out infinite; }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .hero__ripple { animation: none; }
+  .hero__crest img { animation: none; }
   .btn:hover, .care-card:hover, .spa-tile:hover .photo { transform: none; }
 }
