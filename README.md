@@ -12,7 +12,7 @@ au cœur des Mauges, entre Cholet, Nantes et Angers.
 - Fond **ivoire**, cartes **blanc chaud**, sections alternées **or voilé**,
   texte **noir chaud** (celui du wordmark), accent **bronze doré** (boutons,
   liens — l'or de la couronne assombri pour rester lisible), **or exact du
-  logo `#AC915A`** sur les fonds sombres, et **écrins noir chaud** (bandeaux
+  logo `#B08C43`** sur les fonds sombres, et **écrins noir chaud** (bandeaux
   bon cadeau / fidélité, pied de page) rehaussés d'or ;
 - Le logo (couronne détourée `assets/img/logo-couronne.png`, version complète
   `assets/img/logo.png`, favicon) est intégré en en-tête et pied de page ;
@@ -83,12 +83,7 @@ Deploy from a branch*, choisir la branche et la racine `/`.
    demandes directement, brancher un service type Formspree (remplacer le
    gestionnaire `form-contact` dans `assets/js/main.js` ; l'adresse de
    réception se règle en tête de ce même fichier).
-5. **Le logo en haute définition.** Les fichiers `assets/img/logo-couronne.png`
-   et `assets/img/logo.png` ont été extraits d'une capture d'écran du site
-   actuel : la qualité est bonne aux tailles utilisées, mais remplacez-les par
-   les fichiers sources du logo (PNG/SVG d'origine, mêmes noms) pour une
-   netteté parfaite, notamment sur les écrans haute résolution.
-6. **Mentions légales.** L'ancien site avait une page « Mentions légales » :
+5. **Mentions légales.** L'ancien site avait une page « Mentions légales » :
    à recréer avec les informations de l'entreprise (raison sociale, SIRET,
    hébergeur) avant la mise en production.
 

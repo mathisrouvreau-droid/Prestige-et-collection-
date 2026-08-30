@@ -1,7 +1,7 @@
 /* ==========================================================================
    Ô SUBLIME — institut de beauté & spa privatif, Jallais (Beaupréau-en-Mauges)
    Design « Noir, ivoire & or » : chic & cocooning, calé sur le logo —
-   la couronne de feuilles d'or (#AC915A), le noir du wordmark, l'ivoire.
+   la couronne de feuilles d'or (#B08C43), le noir du wordmark, l'ivoire.
    --------------------------------------------------------------------------
    Toute la palette se règle ici. Le site suit le réglage clair/sombre de
    l'appareil (prefers-color-scheme) ; le mode clair est la référence.
@@ -14,15 +14,15 @@
   --card: #FFFDF7;         /* cartes, panneaux : blanc chaud         */
   --ink: #26221C;          /* texte : le noir du wordmark            */
   --soft: #6F6555;         /* texte secondaire : gris-or             */
-  --accent: #836E44;       /* bronze du logo : boutons, liens        */
-  --accent-2: #6E5C39;     /* survol                                 */
+  --accent: #896D34;       /* bronze du logo : boutons, liens        */
+  --accent-2: #735C2C;     /* survol                                 */
   --on-accent: #FFFAF0;    /* texte posé sur l'accent                */
-  --brass: #7F6B43;        /* or foncé lisible : kickers, numéros    */
+  --brass: #866A33;        /* or foncé lisible : kickers, numéros    */
   --cocoon: #26211A;       /* l'écrin : bandeaux chic, pied de page  */
   --cocoon-ink: #F3EDDF;
-  --gold: #AC915A;         /* l'or exact de la couronne (fond sombre)*/
+  --gold: #B08C43;         /* l'or exact de la couronne (fond sombre)*/
   --line: rgba(38, 34, 28, .16);
-  --halo: rgba(172, 145, 90, .14);
+  --halo: rgba(176, 140, 67, .14);
   --shadow: 0 26px 54px -24px rgba(64, 54, 34, .30);
 
   /* — Typographies — */
@@ -45,15 +45,15 @@
     --card: #282318;
     --ink: #F1EADA;
     --soft: #B3A88C;
-    --accent: #C8AC6D;
-    --accent-2: #D7BC7E;
+    --accent: #CBA655;
+    --accent-2: #DAB765;
     --on-accent: #241D10;
-    --brass: #C8AC6D;
+    --brass: #CBA655;
     --cocoon: #26211A;
     --cocoon-ink: #F3EDDF;
-    --gold: #C8AC6D;
+    --gold: #CBA655;
     --line: rgba(241, 234, 218, .15);
-    --halo: rgba(200, 172, 109, .12);
+    --halo: rgba(203, 166, 85, .12);
     --shadow: 0 26px 54px -24px rgba(0, 0, 0, .55);
     color-scheme: dark;
   }
@@ -527,8 +527,8 @@ em, .accent-i { font-style: italic; }
 .band__cta { position: relative; z-index: 1; }
 .band .btn--light { background: var(--gold); color: #241D10; }
 .band .btn--light:hover {
-  background: #C4A96C; color: #241D10;
-  box-shadow: 0 14px 28px -14px rgba(172, 145, 90, .55);
+  background: #C09B54; color: #241D10;
+  box-shadow: 0 14px 28px -14px rgba(176, 140, 67, .55);
 }
 
 @media (max-width: 880px) { .band { grid-template-columns: 1fr; } }
