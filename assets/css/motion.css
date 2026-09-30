@@ -1,0 +1,478 @@
+/* ==========================================================================
+   Ô SUBLIME — couche « mouvement »
+   --------------------------------------------------------------------------
+   Idée directrice : « Ô » se prononce « eau ». Le mouvement du site est celui de
+   l'eau, de la lumière et de l'or — une onde qui part de la couronne, des
+   feuilles qui éclosent une à une, une poussière d'or qui flotte, un rideau qui
+   se lève d'une page à l'autre. Lent, souple, jamais nerveux.
+
+   Cette couche est RETIRABLE : sans motion.css / motion.js, le site est
+   exactement la version sobre. Tout ce qui bouge est sous html.has-motion, une
+   classe posée seulement si JavaScript est actif, si l'appareil n'a pas demandé
+   de « réduire les animations » et si l'interrupteur n'est pas coupé.
+   ========================================================================== */
+
+:root {
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-io: cubic-bezier(.76, 0, .24, 1);
+  --ease-spring: cubic-bezier(.34, 1.45, .64, 1);
+}
+
+/* ---------- 0. Éléments décoratifs injectés : invisibles tant que le mouvement est coupé ---------- */
+.progress, .cursor, .cursor-dot, .scroll-cue, .dust, .sheen, .foot-wreath,
+.marquee, .curtain, .wreath, .rings { display: none; }
+
+html.has-motion .progress,
+html.has-motion .scroll-cue,
+html.has-motion .dust,
+html.has-motion .sheen,
+html.has-motion .foot-wreath,
+html.has-motion .marquee,
+html.has-motion .wreath,
+html.has-motion .rings { display: block; }
+html.has-motion .curtain { display: grid; }
+html.has-motion.has-cursor .cursor,
+html.has-motion.has-cursor .cursor-dot { display: block; }
+
+/* ==========================================================================
+   1. Apparitions au défilement
+   ========================================================================== */
+
+html.has-motion .reveal {
+  opacity: 0; transform: none; translate: 0 38px; scale: .985;
+  transition: opacity 1.1s var(--ease-out), translate 1.3s var(--ease-out), scale 1.3s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+html.has-motion .reveal.is-in { opacity: 1; translate: 0 0; scale: 1; }
+
+/* Séquences : le conteneur ne bouge pas, ses enfants se lèvent l'un après l'autre */
+html.has-motion [data-seq].reveal { opacity: 1; translate: none; scale: none; transition: none; }
+html.has-motion [data-seq] > * {
+  --sd: calc(var(--k, 0) * 95ms + 120ms);
+  transition: opacity 1s var(--ease-out) var(--sd), translate 1.2s var(--ease-out) var(--sd),
+              transform .5s var(--ease-out), border-color .25s ease, box-shadow .35s ease,
+              background-color .25s ease, color .25s ease;
+}
+html.has-motion [data-seq]:not(.is-in) > * { opacity: 0; translate: 0 26px; }
+html.has-motion [data-seq] > tr { translate: none !important; }
+
+/* Le filet des petits titres se déroule */
+html.has-motion .kicker::before,
+html.has-motion .kicker--center::after { transition: transform 1.2s var(--ease-out) .25s; }
+html.has-motion .kicker::before { transform-origin: left center; }
+html.has-motion .kicker--center::after { transform-origin: right center; }
+html.has-motion :is([data-seq], [data-intro]):not(.is-in, .intro-on) .kicker::before,
+html.has-motion :is([data-seq], [data-intro]):not(.is-in, .intro-on) .kicker--center::after { transform: scaleX(0); }
+
+/* ==========================================================================
+   2. Titres : les mots montent d'un masque, un à un
+   ========================================================================== */
+
+html.has-motion .w {
+  display: inline-block; overflow: hidden; vertical-align: top;
+  padding: .14em .09em .22em; margin: -.14em -.09em -.22em;
+}
+html.has-motion .wi {
+  display: inline-block; transform-origin: 0 100%;
+  transform: translateY(112%) rotate(4deg);
+  transition: transform 1.15s var(--ease-out);
+  transition-delay: calc(var(--wi, 0) * 70ms);
+}
+html.has-motion [data-split].is-in .wi { transform: none; }
+/* Dans un héros, seul le départ de l'intro (.intro-on) compte, jamais le .is-in posé par main.js */
+html.has-motion [data-intro]:not(.intro-on) [data-split] .wi { transform: translateY(112%) rotate(4deg); }
+
+/* Les mots en italique doré ont un reflet d'or qui glisse lentement */
+html.has-motion .gold-i .wi {
+  background: linear-gradient(100deg, var(--brass) 0%, var(--brass) 38%, #b08c43 46%, #caa257 50%, #b08c43 54%, var(--brass) 62%, var(--brass) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  animation: foil 9s linear infinite;
+}
+@keyframes foil { from { background-position: 0% 0; } to { background-position: 200% 0; } }
+
+/* ==========================================================================
+   3. Photos : le cadre arrive, l'image se dévoile en montant, puis respire
+   ========================================================================== */
+
+html.has-motion .photo { transform: translateZ(0); }
+html.has-motion .photo img {
+  scale: 1.32; clip-path: inset(100% 0 0 0);
+  transform: translate3d(0, var(--py, 0px), 0);
+  transition: clip-path 1.6s var(--ease-io), scale 2.6s var(--ease-out);
+  will-change: transform;
+}
+html.has-motion .photo.is-in img { scale: 1.12; clip-path: inset(0 0 0 0); }
+html.has-motion .photo::after { opacity: 0; transition: opacity 1.4s ease 1.1s; }
+html.has-motion .photo.is-in::after { opacity: 1; }
+
+html.has-motion .spa-tile:hover .photo img { scale: 1.18; }
+
+/* ==========================================================================
+   4. Icônes au trait : elles se dessinent
+   ========================================================================== */
+
+html.has-motion [data-draw] {
+  stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+  transition: stroke-dashoffset 1.7s var(--ease-out);
+  transition-delay: calc(var(--dk, 0) * 110ms + .35s);
+}
+html.has-motion .is-in [data-draw] { stroke-dashoffset: 0; }
+html.has-motion .ill [data-draw] { transition-duration: 2.6s; }
+html.has-motion .ill .spin-slow {
+  transform-box: fill-box; transform-origin: center; animation: spin 120s linear infinite;
+}
+html.has-motion .ill { animation: bob 9s ease-in-out infinite; }
+@keyframes bob { 50% { translate: 0 -9px; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ==========================================================================
+   5. La couronne : éclosion, rotation lente, ondes
+   ========================================================================== */
+
+.wreath { width: 100%; height: auto; overflow: visible; }
+.wreath * { transform-box: fill-box; }
+.wreath path { fill: var(--gold); }
+.w-spin, .w-stems { transform-origin: 50% 50%; }
+
+/* état initial : tout est caché jusqu'au départ de l'intro (héros) ou du rideau */
+html.has-motion [data-intro]:not(.intro-on) .wreath :is(.w-stems, .w-stem, .w-leaf, .w-leaf path),
+html.has-motion .curtain:not(.play) .wreath :is(.w-stems, .w-stem, .w-leaf, .w-leaf path) { opacity: 0; }
+
+/* 1. les six tiges s'enroulent ensemble, en apparaissant l'une après l'autre */
+html.has-motion :is([data-intro].intro-on, .curtain.play) .w-stems {
+  animation: w-stems-in calc(1.7s * var(--bloom, 1)) var(--ease-out) .05s both;
+}
+html.has-motion :is([data-intro].intro-on, .curtain.play) .w-stem {
+  animation: w-fade calc(1s * var(--bloom, 1)) ease-out calc(.05s + var(--i) * 100ms * var(--bloom, 1)) both;
+}
+/* 2. les dix-huit feuilles éclosent depuis leur tige */
+html.has-motion :is([data-intro].intro-on, .curtain.play) .w-leaf path {
+  animation: w-leaf-in calc(1.05s * var(--bloom, 1)) var(--ease-spring)
+             calc(.55s * var(--bloom, 1) + var(--i) * 64ms * var(--bloom, 1)) both;
+}
+/* 3. puis la vie continue : rotation très lente, feuilles qui se balancent */
+html.has-motion [data-intro].intro-on .w-spin { animation: w-spin 160s linear 3.4s infinite; }
+html.has-motion [data-intro].intro-on .w-leaf {
+  animation: w-sway 7s ease-in-out infinite;
+  animation-delay: calc(3.2s + var(--i) * .43s);
+}
+@keyframes w-stems-in { from { transform: rotate(-44deg) scale(.9); } to { transform: none; } }
+@keyframes w-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes w-leaf-in {
+  from { opacity: 0; transform: scale(.04) rotate(-34deg); }
+  35%  { opacity: 1; }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes w-spin { to { transform: rotate(360deg); } }
+@keyframes w-sway { 50% { transform: rotate(2.4deg); } }
+
+/* Héros de l'accueil */
+html.has-motion .hero > .wrap { position: relative; z-index: 1; }
+html.has-motion .hero__crest {
+  width: clamp(168px, 30vw, 250px); aspect-ratio: 1; margin-bottom: 46px;
+  will-change: transform;
+}
+html.has-motion .hero__crest::before,
+html.has-motion .hero__crest::after { display: none; }
+html.has-motion .hero__crest:has(.crest-svg) > img { display: none; }
+html.has-motion .hero__crest .crest-svg { position: relative; }
+.hero__crest .rings {
+  position: absolute; left: 50%; top: 50%; width: 100%; height: 100%;
+  translate: -50% -50%; overflow: visible; pointer-events: none;
+}
+.rings circle {
+  fill: none; stroke: var(--gold); stroke-width: 1; vector-effect: non-scaling-stroke;
+  transform-box: fill-box; transform-origin: center; opacity: 0;
+}
+html.has-motion [data-intro].intro-on .rings circle {
+  animation: ring-out 9s cubic-bezier(.18, .6, .32, 1) infinite;
+  animation-delay: calc(1.8s + var(--r) * 3s);
+}
+@keyframes ring-out {
+  0%   { transform: scale(.66); opacity: 0; }
+  9%   { opacity: .6; }
+  100% { transform: scale(3.5); opacity: 0; }
+}
+
+/* Lueurs de bougie qui dérivent derrière le héros */
+html.has-motion :is(.hero, .page-hero)::before,
+html.has-motion :is(.hero, .page-hero)::after {
+  content: ""; position: absolute; pointer-events: none; border-radius: 50%; z-index: 0;
+  will-change: transform;
+}
+html.has-motion :is(.hero, .page-hero)::before {
+  width: 62vmax; height: 62vmax; left: -22vmax; top: -30vmax;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--gold) 22%, transparent), transparent 72%);
+  animation: glow-a 24s ease-in-out infinite alternate;
+}
+html.has-motion :is(.hero, .page-hero)::after {
+  width: 54vmax; height: 54vmax; right: -20vmax; bottom: -28vmax;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 15%, transparent), transparent 72%);
+  animation: glow-b 30s ease-in-out infinite alternate;
+}
+@keyframes glow-a { to { transform: translate3d(14vmax, 9vmax, 0) scale(1.18); } }
+@keyframes glow-b { to { transform: translate3d(-12vmax, -8vmax, 0) scale(1.12); } }
+
+.dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.hero .dust { z-index: 0; }
+
+/* Repère de défilement */
+.scroll-cue { position: absolute; left: 50%; bottom: 26px; width: 1px; height: 56px; overflow: hidden; background: var(--line); z-index: 1; }
+.scroll-cue::after {
+  content: ""; position: absolute; left: 0; top: -34%; width: 1px; height: 34%; background: var(--gold);
+  animation: cue 2.6s var(--ease-io) infinite;
+}
+@keyframes cue { to { top: 100%; } }
+
+/* ==========================================================================
+   6. Intro du héros et des en-têtes de page
+   ========================================================================== */
+
+html.has-motion [data-intro] { --t0: .05s; }
+html.has-motion .hero--statement { --t0: .85s; }
+
+html.has-motion [data-intro]:not(.intro-on) :is(.kicker, h1, .lead, .hero__cta, .hero__meta, .hero__crest, .scroll-cue) { opacity: 0; }
+html.has-motion [data-intro] :is(.kicker, .lead, .hero__cta, .hero__meta, .scroll-cue) {
+  transition: opacity 1s var(--ease-out), translate 1.2s var(--ease-out);
+}
+html.has-motion [data-intro]:not(.intro-on) :is(.kicker, .lead, .hero__cta, .hero__meta, .scroll-cue) { translate: 0 22px; }
+html.has-motion [data-intro].intro-on .kicker { transition-delay: var(--t0); }
+html.has-motion [data-intro].intro-on .lead { transition-delay: calc(var(--t0) + .8s); }
+html.has-motion [data-intro].intro-on .hero__cta { transition-delay: calc(var(--t0) + 1s); }
+html.has-motion [data-intro].intro-on .hero__meta { transition-delay: calc(var(--t0) + 1.2s); }
+html.has-motion [data-intro].intro-on .scroll-cue { transition-delay: calc(var(--t0) + 1.9s); }
+html.has-motion [data-intro].intro-on [data-split] .wi {
+  transform: none; transition-delay: calc(var(--t0) + .12s + var(--wi, 0) * 90ms);
+}
+
+/* Ondes des en-têtes de page : des cercles qui s'élargissent comme sur l'eau */
+html.has-motion .page-hero__deco circle {
+  transform-box: fill-box; transform-origin: center;
+  animation: ring-out 11s cubic-bezier(.18, .6, .32, 1) infinite;
+  animation-delay: calc(var(--r, 0) * 3.6s);
+}
+html.has-motion .page-hero__deco circle:nth-child(2) { --r: 1; }
+html.has-motion .page-hero__deco circle:nth-child(3) { --r: 2; }
+html.has-motion .page-hero__deco { opacity: .5; }
+
+/* ==========================================================================
+   7. Bandeau des marques : un défilé continu
+   ========================================================================== */
+
+html.has-motion .brands__row ul { display: none; }
+html.has-motion .brands { padding-block: 26px 22px; overflow: hidden; }
+html.has-motion .brands__row { padding-bottom: 8px; }
+html.has-motion .marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.marquee__track { display: flex; width: max-content; animation: marquee 52s linear infinite; }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+.marquee__track ul { display: flex; flex: none; margin: 0; padding: 0; list-style: none; }
+.marquee__track li {
+  position: relative; white-space: nowrap;
+  padding: 0 clamp(26px, 3.4vw, 50px);
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem); line-height: 1.4; color: var(--ink);
+}
+.marquee__track li::after {
+  content: ""; position: absolute; right: -4px; top: 50%; width: 7px; height: 7px;
+  background: var(--gold); translate: 0 -50%; rotate: 45deg;
+}
+@keyframes marquee { to { transform: translate3d(-50%, 0, 0); } }
+
+/* ==========================================================================
+   8. Boutons : reflet d'or, onde au clic, attraction magnétique
+   ========================================================================== */
+
+html.has-motion .btn {
+  position: relative; overflow: hidden; isolation: isolate;
+  transform: translate3d(var(--tx, 0px), var(--ty, 0px), 0);
+}
+html.has-motion .btn:hover { transform: translate3d(var(--tx, 0px), calc(var(--ty, 0px) - 1px), 0); }
+html.has-motion .btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 32%, rgba(255, 244, 214, .42) 50%, transparent 68%);
+  translate: -125% 0; transition: translate .95s var(--ease-out);
+}
+html.has-motion .btn--ghost::before { background: linear-gradient(105deg, transparent 32%, color-mix(in srgb, var(--gold) 26%, transparent) 50%, transparent 68%); }
+html.has-motion .btn:hover::before { translate: 125% 0; }
+.btn .rip {
+  position: absolute; border-radius: 50%; pointer-events: none; z-index: -1;
+  background: currentColor; opacity: .3; transform: scale(0);
+  animation: rip .9s var(--ease-out) forwards;
+}
+@keyframes rip { to { transform: scale(1); opacity: 0; } }
+
+/* ==========================================================================
+   9. Cartes : légère inclinaison et reflet qui suit le curseur
+   ========================================================================== */
+
+html.has-motion .care-card,
+html.has-motion .escale {
+  position: relative; overflow: hidden;
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+html.has-motion .care-card:hover {
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-4px);
+}
+html.has-motion .care-card::before,
+html.has-motion .escale::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(440px circle at var(--mx, 50%) var(--my, 0%), color-mix(in srgb, var(--gold) 18%, transparent), transparent 62%);
+  transition: opacity .45s ease;
+}
+html.has-motion .care-card:hover::before,
+html.has-motion .escale:hover::before { opacity: 1; }
+
+/* Les étapes d'une escale se remplissent l'une après l'autre */
+html.has-motion .escale__path li::before {
+  transition: background-color .7s ease calc(var(--k, 0) * 220ms + .9s);
+}
+html.has-motion .escale__path li::before { background-color: transparent; }
+html.has-motion .is-in .escale__path li::before { background-color: var(--brass); }
+
+/* Coches : elles se dessinent (voir [data-draw]) ; petit glissé des lignes */
+html.has-motion .care-points li { transition-property: opacity, translate; }
+
+/* ==========================================================================
+   10. Écrin (bandeaux sombres) : reflet qui balaie + poussière d'or
+   ========================================================================== */
+
+.sheen {
+  position: absolute; inset: -30% -40%; pointer-events: none; z-index: 0;
+  background: linear-gradient(105deg, transparent 42%, color-mix(in srgb, var(--gold) 20%, transparent) 50%, transparent 58%);
+  animation: sheen 11s ease-in-out infinite;
+}
+@keyframes sheen { 0%, 100% { transform: translateX(-38%); } 50% { transform: translateX(38%); } }
+html.has-motion .band > div { position: relative; z-index: 1; }
+html.has-motion .band::before, html.has-motion .band::after { animation: spin 140s linear infinite; }
+
+/* Pied de page : couronne en filigrane */
+.site-foot { position: relative; overflow: hidden; }
+.site-foot > .wrap { position: relative; z-index: 1; }
+.foot-wreath {
+  position: absolute; right: -8%; bottom: -46%; width: min(560px, 74vw);
+  opacity: .075; pointer-events: none; z-index: 0;
+}
+.foot-wreath .w-spin { animation: w-spin 240s linear infinite; }
+
+/* ==========================================================================
+   11. Heures d'ouverture vivantes
+   ========================================================================== */
+
+.status { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; color: var(--ink); }
+.status i { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--dot, #4f8a5b); flex: none; }
+.status.is-closed { --dot: #a48a5a; font-weight: 500; color: var(--soft); }
+html.has-motion .status.is-open i::after {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%;
+  border: 1px solid var(--dot); animation: pulse 2.6s ease-out infinite;
+}
+@keyframes pulse { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(1.6); opacity: 0; } }
+p.status-line { margin: 0 0 6px; }
+.hours tr.is-today th, .hours tr.is-today td { color: var(--ink); font-weight: 700; opacity: 1; }
+.hours tr.is-today th::after {
+  content: "aujourd’hui"; margin-left: 10px; padding: 2px 8px; border-radius: 99px;
+  font: 700 .58rem/1.6 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brass); border: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
+  vertical-align: 2px;
+}
+
+/* ==========================================================================
+   12. Sommaire des soins : la pastille suit la lecture
+   ========================================================================== */
+
+.chipnav a { transition: border-color .2s ease, background .3s ease, color .3s ease; }
+.chipnav a[aria-current="true"] { background: var(--cocoon); color: var(--cocoon-ink); border-color: var(--cocoon); }
+
+/* ==========================================================================
+   13. FAQ : ouverture en douceur
+   ========================================================================== */
+
+html.has-motion .faq details[open] p { animation: fade-down .7s var(--ease-out) .05s both; }
+html.has-motion .faq details summary::after { transform: none; transition: transform .55s var(--ease-out); }
+html.has-motion .faq details.is-open summary::after { transform: rotate(45deg); }
+@keyframes fade-down { from { opacity: 0; translate: 0 -8px; } to { opacity: 1; translate: 0 0; } }
+
+/* ==========================================================================
+   14. Chrome : progression, curseur, rideau, interrupteur
+   ========================================================================== */
+
+.progress {
+  position: fixed; left: 0; top: 0; width: 100%; height: 2px; z-index: 160; pointer-events: none;
+  transform: scaleX(0); transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--gold), #e2c47f);
+}
+
+.cursor, .cursor-dot { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 650; opacity: 0; }
+.cursor {
+  width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%;
+  border: 1px solid var(--gold);
+  transition: opacity .3s ease, width .4s var(--ease-out), height .4s var(--ease-out),
+              margin .4s var(--ease-out), background-color .3s ease;
+}
+.cursor-dot { width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 50%; background: var(--gold); transition: opacity .3s ease; }
+.cursor.is-on, .cursor-dot.is-on { opacity: 1; }
+.cursor.is-link { width: 68px; height: 68px; margin: -34px 0 0 -34px; background: color-mix(in srgb, var(--gold) 15%, transparent); }
+.cursor.is-photo { width: 88px; height: 88px; margin: -44px 0 0 -44px; background: color-mix(in srgb, var(--gold) 10%, transparent); }
+.cursor.is-down { width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+.cursor.is-text { opacity: 0; }
+
+.curtain {
+  position: fixed; inset: 0; z-index: 700; pointer-events: none; visibility: hidden;
+  place-items: center; text-align: center;
+  background:
+    radial-gradient(70% 60% at 50% 42%, color-mix(in srgb, var(--gold) 16%, transparent), transparent 70%),
+    var(--cocoon);
+  color: var(--cocoon-ink);
+  clip-path: inset(0 0 100% 0);
+}
+.curtain.is-active { visibility: visible; }
+.curtain__inner { display: grid; justify-items: center; gap: 4px; opacity: 0; transition: opacity .45s ease; }
+.curtain.is-covered .curtain__inner, .curtain.play .curtain__inner { opacity: 1; }
+.curtain .wreath { width: clamp(112px, 17vw, 158px); margin-bottom: 20px; --bloom: .5; }
+.curtain__name { margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 600; letter-spacing: .04em; }
+.curtain__sub { margin: 0; font: 700 .62rem/1.4 var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+html.curtain-hold::before { content: ""; position: fixed; inset: 0; z-index: 690; background: var(--cocoon, #26211a); }
+
+.motion-toggle {
+  position: fixed; left: 14px; bottom: 14px; z-index: 180;
+  display: inline-flex; align-items: center; height: 42px; padding: 0 13px; border-radius: 99px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  color: var(--accent); cursor: pointer;
+  font: 600 .72rem/1 var(--sans); letter-spacing: .04em;
+  box-shadow: 0 12px 26px -16px rgba(64, 54, 34, .5);
+}
+.motion-toggle .ic { width: 16px; height: 16px; flex: none; overflow: visible; }
+.motion-toggle .ic circle { transform-box: fill-box; transform-origin: center; }
+.motion-toggle .slash { opacity: 0; stroke-linecap: round; }
+.motion-toggle[aria-pressed="false"] .ic { color: var(--soft); }
+.motion-toggle[aria-pressed="false"] .ic circle { opacity: .5; }
+.motion-toggle[aria-pressed="false"] .slash { opacity: 1; }
+.motion-toggle[aria-pressed="true"] .r1 { animation: toggle-wave 2.8s ease-out infinite; }
+.motion-toggle[aria-pressed="true"] .r2 { animation: toggle-wave 2.8s ease-out 1.4s infinite; }
+@keyframes toggle-wave { 0% { transform: scale(.55); opacity: .8; } 100% { transform: scale(1.05); opacity: 0; } }
+.motion-toggle .lbl {
+  color: var(--ink); white-space: nowrap; overflow: hidden;
+  max-width: 0; opacity: 0; margin-left: 0;
+  transition: max-width .5s var(--ease-out), opacity .3s ease, margin-left .5s var(--ease-out);
+}
+.motion-toggle:hover .lbl, .motion-toggle:focus-visible .lbl, .motion-toggle.is-hint .lbl {
+  max-width: 330px; opacity: 1; margin-left: 9px;
+}
+
+/* ==========================================================================
+   15. Ajustements mobiles
+   ========================================================================== */
+
+@media (max-width: 700px) {
+  html.has-motion .hero__crest { width: clamp(150px, 46vw, 200px); margin-bottom: 38px; }
+  .marquee__track { animation-duration: 40s; }
+  .foot-wreath { right: -24%; }
+  .motion-toggle { left: 10px; bottom: 10px; }
+}

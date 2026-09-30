@@ -10,6 +10,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/motion.css">
+  <script>
+  /* Couche « mouvement » : activée seulement si JS actif, si l'appareil n'a pas demandé de réduire les
+     animations et si l'interrupteur n'est pas coupé. Filet de sécurité : sans motion.js sous 5 s, retour au site sobre. */
+  (function(){var d=document.documentElement,r=false,s=null;d.classList.add('js');try{r=matchMedia('(prefers-reduced-motion: reduce)').matches;s=localStorage.getItem('os-motion')}catch(e){}
+  if(s==='on'||(s!=='off'&&!r)){d.classList.add('has-motion');try{if(sessionStorage.getItem('os-curtain'))d.classList.add('curtain-hold')}catch(e){}
+  setTimeout(function(){if(!window.OSMotion)d.classList.remove('has-motion','curtain-hold')},5000)}})();
+  </script>
 </head>
 <body>
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -40,7 +48,7 @@
 <main id="contenu">
 
   <!-- ========================= HÉROS ========================= -->
-  <section class="page-hero">
+  <section class="page-hero" data-intro>
     <svg class="page-hero__deco" viewBox="0 0 600 600" fill="none" aria-hidden="true">
       <circle cx="300" cy="300" r="130" stroke="currentColor"/>
       <circle cx="300" cy="300" r="200" stroke="currentColor" opacity=".7"/>
@@ -253,5 +261,7 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/wreath.js"></script>
+<script src="assets/js/motion.js"></script>
 </body>
 </html>

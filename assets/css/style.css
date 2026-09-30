@@ -362,6 +362,9 @@ em, .accent-i { font-style: italic; }
 }
 .brands ul { margin: 0; padding: 0; }
 
+/* Défilé des marques : réservé à la couche « mouvement » (motion.css) */
+.marquee { display: none; }
+
 /* ==========================================================================
    Piliers (philosophie)
    ========================================================================== */
@@ -730,15 +733,17 @@ em, .accent-i { font-style: italic; }
    Apparitions au défilement
    ========================================================================== */
 
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.is-in { opacity: 1; transform: none; }
+/* Le masquage initial n'a lieu que si JavaScript tourne (classe .js posée dans <head>) :
+   sans JS, tout le contenu reste visible. */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; }
 .reveal-d1 { transition-delay: .08s; }
 .reveal-d2 { transition-delay: .16s; }
 .reveal-d3 { transition-delay: .24s; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .hero__crest img { animation: none; }
   .btn:hover, .care-card:hover, .spa-tile:hover .photo { transform: none; }
 }
